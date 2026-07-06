@@ -33,6 +33,8 @@ export function Report() {
   
   return (
     <section className={s.section}>
+      <div className={s.container}>
+      <h3 className={s.title}>Витрати</h3>
       <ul className={s.list}>
         {icons.map((icon) => {
           const Icon = iconMap[icon.id as keyof typeof iconMap];
@@ -44,6 +46,7 @@ export function Report() {
           );
         })}
       </ul>
+      </div>
     </section>
   );
 }

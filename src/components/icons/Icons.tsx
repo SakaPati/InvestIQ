@@ -1,6 +1,6 @@
-export const Products = ({ size = 24, color = "#071F41" }) => {
+export const Products = ({ size = 48, color = "#071F41" }) => {
   const width = size;
-  const height = (57 / 63) * size;
+  const height = size;
 
   return (
     <svg 
@@ -19,15 +19,15 @@ export const Products = ({ size = 24, color = "#071F41" }) => {
 };
 
 
-export const Alcohol = ({ size = 24, color = "#071F41" }) => {
+export const Alcohol = ({ size = 48, color = "#071F41" }) => {
   const width = size;
-  const height = (56 / 46) * size;
+  const height = size;
 
   return (
     <svg 
       width={width} 
       height={height} 
-      viewBox="0 0 46 56" 
+      viewBox="0 0 56 56" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -39,15 +39,15 @@ export const Alcohol = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Fun = ({ size = 24, color = "#071F41" }) => {
+export const Fun = ({ size = 48, color = "#071F41" }) => {
   const width = size;
-  const height = (56 / 51) * size;
+  const height = size;
 
   return (
     <svg 
       width={width} 
       height={height} 
-      viewBox="0 0 51 56" 
+      viewBox="0 0 56 56" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -59,7 +59,7 @@ export const Fun = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Transport = ({ size = 24, color = "#071F41" }) => {
+export const Transport = ({ size = 48, color = "#071F41" }) => {
   const width = size;
   const height = size;
 
@@ -67,7 +67,7 @@ export const Transport = ({ size = 24, color = "#071F41" }) => {
     <svg
       width={width}
       height={height}
-      viewBox="0 0 56 56"
+      viewBox="0 0 56 56" 
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -95,7 +95,7 @@ export const Transport = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Health = ({ size = 24, color = "#071F41" }) => {
+export const Health = ({ size = 48, color = "#071F41" }) => {
   const width = size;
   const height = size;
   const clipId = "clip_health_icon";
@@ -131,15 +131,15 @@ export const Health = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Home = ({ size = 24, color = "#071F41" }) => {
+export const Home = ({ size = 48, color = "#071F41" }) => {
   const width = size;
-  const height = (32 / 56) * size;
+  const height = size;
 
   return (
     <svg 
       width={width} 
       height={height} 
-      viewBox="0 0 56 32" 
+      viewBox="0 0 56 36" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -151,7 +151,7 @@ export const Home = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Technic = ({ size = 24, color = "#071F41" }) => {
+export const Technic = ({ size = 48, color = "#071F41" }) => {
   const width = size;
   const height = size;
 
@@ -194,7 +194,7 @@ export const Technic = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Bills = ({ size = 24, color = "#071F41" }) => {
+export const Bills = ({ size = 48, color = "#071F41" }) => {
   const width = size;
   const height = size;
 
@@ -269,15 +269,14 @@ export const Bills = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Hobby = ({ size = 24, color = "#071F41" }) => {
+export const Hobby = ({ size = 48, color = "#071F41" }) => {
   const width = size;
-  const height = (49 / 56) * size;
-
+  const height = size;
   return (
     <svg 
       width={width} 
       height={height} 
-      viewBox="0 0 56 49" 
+      viewBox="0 0 56 56" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -289,7 +288,7 @@ export const Hobby = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Learn = ({ size = 24, color = "#071F41" }) => {
+export const Learn = ({ size = 48, color = "#071F41" }) => {
   const width = size;
   const height = size;
 
@@ -309,7 +308,7 @@ export const Learn = ({ size = 24, color = "#071F41" }) => {
   );
 };
 
-export const Other = ({ size = 24, color = "#071F41" }) => {
+export const Other = ({ size = 48, color = "#071F41" }) => {
   const width = size;
   const height = size;
 
@@ -367,5 +366,4 @@ export const Other = ({ size = 24, color = "#071F41" }) => {
     </svg>
   );
 };
-
 
