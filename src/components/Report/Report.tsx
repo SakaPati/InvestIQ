@@ -1,51 +1,32 @@
+import { useState } from "react";
 import s from "./Report.module.css";
-import array from "../../../public/data/report.json";
-import {
-  Products,
-  Alcohol,
-  Fun,
-  Health,
-  Transport,
-  Home,
-  Technic,
-  Bills,
-  Learn,
-  Hobby,
-  Other,
-} from "../icons/Icons";
+import { Next, Previous } from "@/assets";
+import { Income } from "../Income/Income";
 
 export function Report() {
-  const icons = array;
+  const [activeCategory, setActiveCategory] = useState<"Витрати" | "Доходи">(
+    "Витрати",
+  );
 
-  const iconMap = {
-    Products,
-    Alcohol,
-    Fun,
-    Health,
-    Transport,
-    Home,
-    Technic,
-    Bills,
-    Hobby,
-    Learn,
-    Other,
-  };
-  
+  function handleCategoryClick() {
+    setActiveCategory((prev) => (prev === "Витрати" ? "Доходи" : "Витрати"));
+  }
+
   return (
     <section className={s.section}>
       <div className={s.container}>
-      <h3 className={s.title}>Витрати</h3>
-      <ul className={s.list}>
-        {icons.map((icon) => {
-          const Icon = iconMap[icon.id as keyof typeof iconMap];
-          return (
-            <li key={icon.id}>
-              {Icon && <Icon />}
-              <h3 className={s.iconName}>{icon.title.toUpperCase()}</h3>
-            </li>
-          );
-        })}
-      </ul>
+        <div className={s.categoryWrapper}>
+          <Previous onClick={handleCategoryClick} className={s.arrow} />
+          <h3 className={s.title}>
+            {activeCategory === "Витрати" ? "Витрати" : "Доходи"}
+          </h3>
+          <Next onClick={handleCategoryClick} className={s.arrow} />
+        </div>
+        {activeCategory === "Витрати" ? (
+          null
+        ) : (
+          <Income />
+        )}
       </div>
     </section>
   );
