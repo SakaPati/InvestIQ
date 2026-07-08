@@ -4,7 +4,11 @@ import s from "./Login.module.css";
 import {
     getMoney,
     upMoney,
-    GoogleLogo
+    GoogleLogo,
+    moneyCalculator,
+    getMoneyFull,
+    loginHeroBackground,
+    loginFooterBackground
 } from "@/assets";
 
 interface UserFormDate {
@@ -47,9 +51,18 @@ export const Login = () => {
     return (
         <section className={s.loginSection}>
             <Container>
-                <img src={getMoney} alt="Рука держит монетку" className={s.getMoney} />
-                
-                <div className={ s.heroSec}>
+                <div className={s.icons}>
+                    <div className={s.mobileIcons}>
+                        <img src={getMoney} alt="Рука держит монетку" />
+                        <img src={upMoney} alt="Инфляция растет..." />
+                    </div>
+                    <div className={s.tableIcons}>
+                        <img src={loginHeroBackground} alt="Иконки" />
+                        <img src={loginFooterBackground} alt="Футер иконки" />
+                    </div>
+                </div>
+
+                <div className={s.heroSec}>
                     <h1 className={s.title}>InvestIQ</h1>
                     <p className={s.subTitle}>Smart Finance</p>
                 </div>
@@ -65,7 +78,7 @@ export const Login = () => {
                         <div>
                             <label htmlFor="useremail">Електронна пошта:</label>
                             <input type="email" id="useremail" name="email" placeholder="your@email.com" required />
-                            {errors.email && <p style={{ color: 'red', margin: 0 }}>{errors.email}</p>}
+                            {errors.email && <p>{errors.email}</p>}
                         </div>
 
                         <div>
@@ -80,7 +93,6 @@ export const Login = () => {
                         </div>
                     </form>
                 </div>
-                <img src={upMoney} alt="Инфляция растет..." className={ s.inflation} />
             </Container>
         </section>
     )

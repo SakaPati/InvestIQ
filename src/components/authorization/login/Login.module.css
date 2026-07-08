@@ -1,16 +1,25 @@
 .loginSection {
   position: relative;
   margin-top: 3.875rem;
-  padding: 0 .625rem;
+  padding: 0 0.625rem;
+  background: linear-gradient(to bottom, #f5f6fb 50%, #ffffff 50%);
+  border-bottom-left-radius: 20px;
 }
 
-.getMoney {
+.mobileIcons img:nth-child(1) {
   position: absolute;
   top: 1.25rem;
   left: 16.1875rem;
 }
 
+.mobileIcons img:nth-child(2) {
+  position: absolute;
+  top: 655px;
+  left: 0;
+}
+
 .heroSec {
+  position: relative;
   margin: 0 29px;
 }
 
@@ -27,6 +36,12 @@
   margin-left: 1.375rem;
   color: #52555f;
   text-transform: uppercase;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #52555f;
 }
 
 .loginSec {
@@ -46,6 +61,7 @@
   padding-top: 40px;
   text-align: center;
   color: #52555f;
+  margin: 0 auto;
 }
 
 .googleAuthButton {
@@ -98,10 +114,6 @@
   color: #000;
 }
 
-.loginForm div {
-  margin: 0 29px;
-}
-
 .loginForm div:nth-child(2) {
   margin-top: 30px;
   margin-bottom: 40px;
@@ -112,37 +124,94 @@
   column-gap: 15px;
 }
 
-.submitBtn {
+.formActions button {
   border-radius: 16px;
   width: 125px;
   height: 44px;
-  background: #ff751d;
-  font-family: var(--font-family);
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: center;
+}
+
+.submitBtn {
+  background: #ff751d;
+  font-family: var(--font-family);
   color: #fff;
   box-shadow: 4px 4px 10px rgba(255, 117, 29, 0.3);
 }
 
 .registerBtn {
-  border-radius: 16px;
-  width: 125px;
-  height: 44px;
   background: #f5f6fb;
   font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  text-align: center;
   color: #52555f;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.inflation {
-  position: absolute;
-  left: 0;
+@media (min-width: 768px) {
+  .icons .mobileIcons {
+    display: none;
+  }
+
+  .icons .tableIcons {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    z-index: 0;
+  }
+
+  .tableIcons img:nth-child(2) {
+    position: absolute;
+    top: 754px;
+    left: 103px;
+    padding-bottom: 56px;
+  }
+
+  .heroSec {
+    padding-top: 60px;
+  }
+
+  .loginSec {
+    position: relative;
+    width: 436px;
+  }
+
+  .title {
+    font-size: 6.375rem;
+  }
+
+  .subTitle {
+    width: 162px;
+    height: 19px;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    margin-left: 3.625rem;
+  }
+
+  .googleAuthTitle {
+    padding-top: 50px;
+    width: 256px;
+    text-align: start;
+  }
+
+  .loginForm input {
+    width: 265px;
+  }
+
+  .loginForm div:not(.formActions) {
+    display: flex;
+    flex-direction: column;
+    width: 259px;
+    margin: 0 auto;
+  }
+
+  .loginForm div:nth-child(1) {
+    margin-bottom: 30px;
+  }
+
+  .formActions {
+    width: 265px;
+    margin: 40px auto 0 auto;
+  }
 }
