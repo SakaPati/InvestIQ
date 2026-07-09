@@ -150,7 +150,8 @@
 }
 
 @media (min-width: 768px) {
-  .icons .mobileIcons {
+  .icons .mobileIcons,
+  .desktopIcons {
     display: none;
   }
 
@@ -161,7 +162,7 @@
     z-index: 0;
   }
 
-  .tableIcons img:nth-child(2) {
+  .footerIcons {
     position: absolute;
     top: 754px;
     left: 103px;
@@ -213,5 +214,39 @@
   .formActions {
     width: 265px;
     margin: 40px auto 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tableIcons {
+    display: none;
+  }
+
+  .desktopIcons {
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: 10px;
+  }
+
+  .heroSec {
+    width: 385px;
+    margin: 0 auto;
+  }
+  .formSection {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    column-gap: 119px;
+    top: 0;
+    left: 15%;
+    margin-top: 115px;
+  }
+  .loginSec {
+    margin-top: 0;
+  }
+
+  .footerIcons{
+    left: 130px;
   }
 }

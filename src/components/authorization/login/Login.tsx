@@ -5,10 +5,9 @@ import {
     getMoney,
     upMoney,
     GoogleLogo,
-    moneyCalculator,
-    getMoneyFull,
     loginHeroBackground,
-    loginFooterBackground
+    loginFooterBackground,
+    loginHeroBackgroundDesk
 } from "@/assets";
 
 interface UserFormDate {
@@ -58,40 +57,45 @@ export const Login = () => {
                     </div>
                     <div className={s.tableIcons}>
                         <img src={loginHeroBackground} alt="Иконки" />
-                        <img src={loginFooterBackground} alt="Футер иконки" />
                     </div>
+                    <div className={s.desktopIcons}>
+                        <img src={loginHeroBackgroundDesk} alt="Иконки" />
+                    </div>
+                    <img src={loginFooterBackground} alt="Футер иконки" className={ s.footerIcons} />
                 </div>
 
-                <div className={s.heroSec}>
-                    <h1 className={s.title}>InvestIQ</h1>
-                    <p className={s.subTitle}>Smart Finance</p>
-                </div>
+                <div className={ s.formSection}>
+                    <div className={s.heroSec}>
+                        <h1 className={s.title}>InvestIQ</h1>
+                        <p className={s.subTitle}>Smart Finance</p>
+                    </div>
 
-                <div className={s.loginSec}>
-                    <h2 className={s.googleAuthTitle}>Ви можете авторизуватися за допомогою акаунта Google</h2>
-                    <button className={s.googleAuthButton}>
-                        <GoogleLogo />
-                        Google
-                    </button>
-                    <p className={s.orRegisterTitle}>Або увійти за допомогою ел. пошти та паролю після реєстрації</p>
-                    <form onSubmit={handleSubmite} className={s.loginForm}>
-                        <div>
-                            <label htmlFor="useremail">Електронна пошта:</label>
-                            <input type="email" id="useremail" name="email" placeholder="your@email.com" required />
-                            {errors.email && <p>{errors.email}</p>}
-                        </div>
+                    <div className={s.loginSec}>
+                        <h2 className={s.googleAuthTitle}>Ви можете авторизуватися за допомогою акаунта Google</h2>
+                        <button className={s.googleAuthButton}>
+                            <GoogleLogo />
+                            Google
+                        </button>
+                        <p className={s.orRegisterTitle}>Або увійти за допомогою ел. пошти та паролю після реєстрації</p>
+                        <form onSubmit={handleSubmite} className={s.loginForm}>
+                            <div>
+                                <label htmlFor="useremail">Електронна пошта:</label>
+                                <input type="email" id="useremail" name="email" placeholder="your@email.com" required />
+                                {errors.email && <p>{errors.email}</p>}
+                            </div>
 
-                        <div>
-                            <label htmlFor="password">Пароль:</label>
-                            <input type="text" id="password" name="password" placeholder="Пароль" required />
-                            {errors.password && <p style={{ color: 'red', margin: 0 }}>{errors.password}</p>}
-                        </div>
+                            <div>
+                                <label htmlFor="password">Пароль:</label>
+                                <input type="text" id="password" name="password" placeholder="Пароль" required />
+                                {errors.password && <p style={{ color: 'red', margin: 0 }}>{errors.password}</p>}
+                            </div>
 
-                        <div className={s.formActions}>
-                            <button type="submit" className={s.submitBtn}>Увійти</button>
-                            <button type="button" className={s.registerBtn}>Реєстрація</button>
-                        </div>
-                    </form>
+                            <div className={s.formActions}>
+                                <button type="submit" className={s.submitBtn}>Увійти</button>
+                                <button type="button" className={s.registerBtn}>Реєстрація</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </Container>
         </section>
