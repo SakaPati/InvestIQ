@@ -1,0 +1,83 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 40px;
+
+  /* пад до сброс */
+
+  padding: 0;
+}
+
+.list > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc((100% - 40px) / 3);
+}
+
+.counter {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #52555f;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.iconName {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #52555f;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 670px) {
+  .list {
+    column-gap: 12px;
+    width: 600px;
+      margin: 0 auto;
+  }
+  .list > li {
+    width: calc((100% - 100px) / 6);
+  }
+
+  .iconName {
+    font-size: 11px;
+  }
+}
+
+
+@media screen and (min-width: 670px) {
+  .list {
+    width: 1000px;
+  }
+
+
+
+
+.counter {
+  font-size: 12px;
+}
+  .iconName {
+    font-size: 12px;
+  }
+}
