@@ -42,5 +42,13 @@
   {
     "title": "Інше",
     "id": "Other"
+  },
+  {
+    "title": "Зп",
+    "id": "Salary"
+  },
+  {
+    "title": "Дод. дохід",
+    "id": "Extra"
   }
 ]
