@@ -1,5 +1,7 @@
+@import "modern-normalize";
+
 :root {
-  /* --text: #6b6375;
+  --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
   --border: #e5e4e7;
@@ -13,11 +15,11 @@
 
   --sans: system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace; */
+  --mono: ui-monospace, Consolas, monospace;
 
   --font-family: "Roboto", sans-serif;
   --second-family: "Montserrat", sans-serif;
-  /* letter-spacing: 0.18px;
+  letter-spacing: 0.18px;
   color: var(--text);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,10 +28,10 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
-  } */
+  }
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
@@ -59,36 +61,27 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
   margin: 0;
 }
 
@@ -105,14 +98,19 @@ code {
   line-height: 135%;
   padding: 4px 8px;
 }
-*/
+
 ul {
   padding: 0;
-  margin: 0;
+  border: none;
+  background: transparent;
 }
 
-li {
+button {
+  cursor: pointer;
+}
+
+ul, ol {
   padding: 0;
   margin: 0;
   list-style: none;
-} 
+}
