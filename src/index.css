@@ -1,13 +1,4 @@
-@import "modern-normalize";
-
 :root {
-<<<<<<<<< Temporary merge branch 1
-  --font-main: "Roboto", sans-serif;
-  --second-family: "Montserrat", sans-serif;
-}
-
-*, *::before, *::after {
-=========
   /* --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -65,34 +56,40 @@
   min-height: 100svh;
   display: flex;
   flex-direction: column;
->>>>>>>>> Temporary merge branch 2
   box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-main);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
 }
 
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
   margin: 0;
-<<<<<<<<< Temporary merge branch 1
-=========
 }
 
 code,
@@ -110,26 +107,16 @@ code {
 }
 */
 ul {
->>>>>>>>> Temporary merge branch 2
   padding: 0;
-  border: none;
-  background: transparent;
+  margin: 0;
 }
 
-button {
-  cursor: pointer;
-}
-
-ul, ol {
+li {
   padding: 0;
   margin: 0;
   list-style: none;
-<<<<<<<<< Temporary merge branch 1
-}
+} 
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
-=========
-} 
->>>>>>>>> Temporary merge branch 2
