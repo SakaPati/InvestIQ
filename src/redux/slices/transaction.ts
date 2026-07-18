@@ -9,7 +9,8 @@ export interface Transaction {
   id: string;
   // date: string; // Date
   title: string;
-category: Category;  sum: number;
+  category: Category;
+  sum: number;
 }
 
 const expenseAdapter = createEntityAdapter<Transaction>(); // витрати
