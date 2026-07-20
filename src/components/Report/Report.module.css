@@ -8,11 +8,11 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-    padding-top: 40px;
+  padding-top: 40px;
 }
 
 .title {
-  font-family: var(--font-family);
+  font-family: var(--font-main);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.02em;
