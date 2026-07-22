@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Container } from "../../utils/container/Container";
-import s from "./Login.module.css";
+import s from "./Authorization.module.css";
 import {
     getMoney,
     upMoney,
-    GoogleLogo,
     loginHeroBackground,
     loginFooterBackground,
     loginHeroBackgroundDesk
 } from "@/assets";
+import { AuthButtons } from "./AuthButton";
 
 interface UserFormDate {
     email: string,
@@ -61,10 +61,10 @@ export const Login = () => {
                     <div className={s.desktopIcons}>
                         <img src={loginHeroBackgroundDesk} alt="Иконки" />
                     </div>
-                    <img src={loginFooterBackground} alt="Футер иконки" className={ s.footerIcons} />
+                    <img src={loginFooterBackground} alt="Футер иконки" className={s.footerIcons} />
                 </div>
 
-                <div className={ s.formSection}>
+                <div className={s.formSection}>
                     <div className={s.heroSec}>
                         <h1 className={s.title}>InvestIQ</h1>
                         <p className={s.subTitle}>Smart Finance</p>
@@ -72,10 +72,7 @@ export const Login = () => {
 
                     <div className={s.loginSec}>
                         <h2 className={s.googleAuthTitle}>Ви можете авторизуватися за допомогою акаунта Google</h2>
-                        <button className={s.googleAuthButton}>
-                            <GoogleLogo />
-                            Google
-                        </button>
+                        <AuthButtons />
                         <p className={s.orRegisterTitle}>Або увійти за допомогою ел. пошти та паролю після реєстрації</p>
                         <form onSubmit={handleSubmite} className={s.loginForm}>
                             <div>
