@@ -5,11 +5,14 @@
   --second-family: "Montserrat", sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -25,7 +28,10 @@ a {
   color: inherit;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -40,12 +46,25 @@ button {
   cursor: pointer;
 }
 
-ul, ol {
+ul,
+ol {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }

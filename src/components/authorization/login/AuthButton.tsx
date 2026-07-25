@@ -32,7 +32,7 @@ export const AuthButtons = () => {
 
     return (
         <button className={s.googleAuthButton} onClick={() => googleLogin()}>
-            <GoogleLogo />
+            <GoogleLogo className={s.googleLogo} />
             Google
         </button>
     );
