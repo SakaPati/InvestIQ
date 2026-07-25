@@ -16,7 +16,7 @@
 }
 
 .iconName {
-  font-family: var(--font-family);
+  font-family: var(--font-main);
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.02em;
@@ -31,5 +31,5 @@
 }
 
 .active {
-  color: #FF751D;
+  color: #ff751d;
 }

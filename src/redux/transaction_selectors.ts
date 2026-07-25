@@ -7,17 +7,18 @@ export interface ReturnedData {
 }
 
 export interface ReturnedCategorySumData {
-products: number,
-        alcohol: number,
-        fun: number,
-        health: number,
-        transport: number,
-        home: number,
-        technic: number,
-        bills: number,
-        hobby: number,
-        learn: number,
-        other: number,}
+  products: number,
+  alcohol: number,
+  fun: number,
+  health: number,
+  transport: number,
+  home: number,
+  technic: number,
+  bills: number,
+  hobby: number,
+  learn: number,
+  other: number,
+}
 
 // сума доходів
 export const selectTotalIncomeSum = createSelector(
@@ -61,7 +62,7 @@ export type ReturnedCategoryData = Record<Category, CategoryData>;
 export const selectExpenseCategory = createSelector(
   [expenseSelectors.selectAll],
   (expenses): ReturnedCategoryData => {
-  return expenses.reduce<ReturnedCategoryData>(
+    return expenses.reduce<ReturnedCategoryData>(
       (acc, expense) => {
         acc[expense.category].transactions.push({
           name: expense.title,
@@ -71,8 +72,8 @@ export const selectExpenseCategory = createSelector(
 
         return acc
       },
-          {
-        Products: {transactions: [], total: 0},
+      {
+        Products: { transactions: [], total: 0 },
         Alcohol: { transactions: [], total: 0 },
         Fun: { transactions: [], total: 0 },
         Health: { transactions: [], total: 0 },
