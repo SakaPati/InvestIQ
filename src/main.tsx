@@ -11,6 +11,6 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter basename="/InvestIQ/">
       <App />
     </BrowserRouter>
-    </ Provider>
+    </Provider>
   </StrictMode>,
 )
