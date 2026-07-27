@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.fozeton.investiq.backend.controllers.AuthControllerTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2026-07-27T17:33:56.013Z" hostname="DESKTOP-4PE6FO8" time="6.9">
+  <properties/>
+  <testcase name="[1] badEmail = &quot;ananas@&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.345"/>
+  <testcase name="[2] badEmail = &quot;   &quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.012"/>
+  <testcase name="[3] badEmail = &quot;&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.011"/>
+  <testcase name="[4] badEmail = &quot;1234567&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.009"/>
+  <testcase name="[5] badEmail = &quot;@gmail.com&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.009"/>
+  <testcase name="[1] badPassword = &quot;123&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.015"/>
+  <testcase name="[2] badPassword = &quot;   &quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.012"/>
+  <testcase name="[3] badPassword = &quot;&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.009"/>
+  <testcase name="[4] badPassword = &quot;1234567&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.009"/>
+  <testcase name="[1] badEmail = &quot;ananas@&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.011"/>
+  <testcase name="[2] badEmail = &quot;   &quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.009"/>
+  <testcase name="[3] badEmail = &quot;&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.012"/>
+  <testcase name="[4] badEmail = &quot;1234567&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.01"/>
+  <testcase name="[5] badEmail = &quot;@gmail.com&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.008"/>
+  <testcase name="loginSuccessTest()" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.023"/>
+  <testcase name="[1] badPassword = &quot;123&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.008"/>
+  <testcase name="[2] badPassword = &quot;   &quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.014"/>
+  <testcase name="[3] badPassword = &quot;&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.006"/>
+  <testcase name="[4] badPassword = &quot;1234567&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.055"/>
+  <testcase name="[1] badUserName = &quot;   &quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.01"/>
+  <testcase name="[2] badUserName = &quot;&quot;" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.01"/>
+  <testcase name="registerSuccessTest()" classname="ru.fozeton.investiq.backend.controllers.AuthControllerTest" time="0.012"/>
+  <system-out><![CDATA[19:33:56.221 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ru.fozeton.investiq.backend.controllers.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:33:56.361 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ru.fozeton.investiq.backend.BackendApplication for test class ru.fozeton.investiq.backend.controllers.AuthControllerTest
+19:33:56.458 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ru.fozeton.investiq.backend.controllers.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:33:56.462 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ru.fozeton.investiq.backend.BackendApplication for test class ru.fozeton.investiq.backend.controllers.AuthControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-07-27T19:33:56.889+02:00  INFO 42248 --- [backend] [    Test worker] r.f.i.b.controllers.AuthControllerTest   : Starting AuthControllerTest using Java 21.0.7 with PID 42248 (started by annat in C:\GOIteens\InvestIQ\backend)
+2026-07-27T19:33:56.891+02:00  INFO 42248 --- [backend] [    Test worker] r.f.i.b.controllers.AuthControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-07-27T19:33:57.614+02:00  INFO 42248 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-27T19:33:57.677+02:00  INFO 42248 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 1 JPA repository interface.
+2026-07-27T19:33:59.081+02:00  INFO 42248 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-27T19:33:59.328+02:00  INFO 42248 --- [backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:2c6368b9-2dd7-42ef-b9ee-b7d33bc40dea user=SA
+2026-07-27T19:33:59.333+02:00  INFO 42248 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-27T19:33:59.388+02:00  INFO 42248 --- [backend] [    Test worker] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-27T19:33:59.479+02:00  INFO 42248 --- [backend] [    Test worker] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-07-27T19:33:59.957+02:00  INFO 42248 --- [backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-27T19:34:00.090+02:00  INFO 42248 --- [backend] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:2c6368b9-2dd7-42ef-b9ee-b7d33bc40dea]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 2C6368B9-2DD7-42EF-B9EE-B7D33BC40DEA/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-27T19:34:01.101+02:00  INFO 42248 --- [backend] [    Test worker] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-27T19:34:01.144+02:00  INFO 42248 --- [backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T19:34:01.285+02:00  WARN 42248 --- [backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-27T19:34:01.818+02:00  INFO 42248 --- [backend] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-27T19:34:02.138+02:00  INFO 42248 --- [backend] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-27T19:34:02.138+02:00  INFO 42248 --- [backend] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-27T19:34:02.141+02:00  INFO 42248 --- [backend] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-07-27T19:34:02.169+02:00  INFO 42248 --- [backend] [    Test worker] r.f.i.b.controllers.AuthControllerTest   : Started AuthControllerTest in 5.613 seconds (process running for 7.161)
+2026-07-27T19:34:02.449+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Некорректный формат email адреса
+2026-07-27T19:34:02.554+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Укажите email
+2026-07-27T19:34:02.566+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Укажите email
+2026-07-27T19:34:02.582+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Некорректный формат email адреса
+2026-07-27T19:34:02.595+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Некорректный формат email адреса
+2026-07-27T19:34:02.617+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Пароль должен содержать минимум 8 символов
+2026-07-27T19:34:02.630+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Введите пароль
+2026-07-27T19:34:02.643+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Введите пароль
+2026-07-27T19:34:02.655+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Пароль должен содержать минимум 8 символов
+2026-07-27T19:34:02.678+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Некорректный формат email адреса
+2026-07-27T19:34:02.688+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Укажите email
+2026-07-27T19:34:02.703+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Укажите email
+2026-07-27T19:34:02.717+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Некорректный формат email адреса
+2026-07-27T19:34:02.729+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Некорректный формат email адреса
+2026-07-27T19:34:02.766+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Пароль должен содержать минимум 8 символов
+2026-07-27T19:34:02.779+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Пароль должен содержать минимум 8 символов
+2026-07-27T19:34:02.792+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Пароль должен содержать минимум 8 символов
+2026-07-27T19:34:02.848+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Пароль должен содержать минимум 8 символов
+2026-07-27T19:34:02.872+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Укажите имя пользователя
+2026-07-27T19:34:02.886+02:00  WARN 42248 --- [backend] [    Test worker] r.f.i.b.exceptions.ApiExceptionHandler   : API Warning: validation_error - Укажите имя пользователя
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\annat\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.18.10\9426d28828bdcdf42666bb7a68c468279ea78f59\byte-buddy-agent-1.18.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

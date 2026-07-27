@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.fozeton.investiq.backend.BackendApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-07-27T17:34:02.937Z" hostname="DESKTOP-4PE6FO8" time="0.742">
+  <properties/>
+  <testcase name="contextLoads()" classname="ru.fozeton.investiq.backend.BackendApplicationTests" time="0.004"/>
+  <system-out><![CDATA[2026-07-27T19:34:02.941+02:00  INFO 42248 --- [backend] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [ru.fozeton.investiq.backend.BackendApplicationTests]: BackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-27T19:34:02.955+02:00  INFO 42248 --- [backend] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration ru.fozeton.investiq.backend.BackendApplication for test class ru.fozeton.investiq.backend.BackendApplicationTests
+2026-07-27T19:34:02.957+02:00  INFO 42248 --- [backend] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [ru.fozeton.investiq.backend.BackendApplicationTests]: BackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-27T19:34:02.959+02:00  INFO 42248 --- [backend] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration ru.fozeton.investiq.backend.BackendApplication for test class ru.fozeton.investiq.backend.BackendApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-07-27T19:34:03.015+02:00  INFO 42248 --- [backend] [    Test worker] r.f.i.backend.BackendApplicationTests    : Starting BackendApplicationTests using Java 21.0.7 with PID 42248 (started by annat in C:\GOIteens\InvestIQ\backend)
+2026-07-27T19:34:03.016+02:00  INFO 42248 --- [backend] [    Test worker] r.f.i.backend.BackendApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-07-27T19:34:03.223+02:00  INFO 42248 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-27T19:34:03.267+02:00  INFO 42248 --- [backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interface.
+2026-07-27T19:34:03.377+02:00  INFO 42248 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-07-27T19:34:03.380+02:00  INFO 42248 --- [backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:3808f40c-745a-4618-a04e-0edfedc5152d user=SA
+2026-07-27T19:34:03.380+02:00  INFO 42248 --- [backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-07-27T19:34:03.382+02:00  INFO 42248 --- [backend] [    Test worker] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-27T19:34:03.420+02:00  INFO 42248 --- [backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-27T19:34:03.422+02:00  INFO 42248 --- [backend] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:3808f40c-745a-4618-a04e-0edfedc5152d]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 3808F40C-745A-4618-A04E-0EDFEDC5152D/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-27T19:34:03.474+02:00  INFO 42248 --- [backend] [    Test worker] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-27T19:34:03.480+02:00  INFO 42248 --- [backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-27T19:34:03.543+02:00  WARN 42248 --- [backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-27T19:34:03.673+02:00  INFO 42248 --- [backend] [    Test worker] r.f.i.backend.BackendApplicationTests    : Started BackendApplicationTests in 0.706 seconds (process running for 8.665)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
