@@ -2,26 +2,57 @@ import s from "./Transactions.module.css";
 import { useState } from "react";
 
 const Transactions = () => {
+  interface DescOfTransaction {
+    desc: string;
+    category: string;
+    sum: string;
+  }
+
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
   const [sum, setSum] = useState("0,00");
   const [isActive, setIsActive] = useState(false);
+  const [transactions, setTransactions] = useState<DescOfTransaction[]>([]);
 
   const changeDesc = (value: string) => {
     setDesc(value);
+    setDesc("");
+  };
+
+  const setCateg = (value: string) => {
+    setCategory(value);
+    setCategory("");
   };
 
   const changeSum = (value: string) => {
     setSum(value);
+    setSum("");
   };
 
   const changeActive = (value: boolean) => {
     setIsActive(value);
   };
 
-  const setCateg = (value: string) => {
-    setCategory(value);
+  const addTransaction = () => {
+    setTransactions([
+      ...transactions,
+      { desc: desc, category: category, sum: sum },
+    ]);
   };
+
+  const categories: Array<string> = [
+    "Products",
+    "Alcohol",
+    "Fun",
+    "Health",
+    "Transport",
+    "Home",
+    "Technic",
+    "Bills",
+    "Hobby",
+    "Learn",
+    "Other",
+  ];
 
   return (
     <section className={s.transactions}>
@@ -44,39 +75,14 @@ const Transactions = () => {
           ></button>
           {isActive && (
             <ul className={s.categsList}>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Products
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Alcohol
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Fun
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Health
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Transport
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Home
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Technic
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Bills
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Hobby
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Learn
-              </li>
-              <li onClick={(e) => setCateg(e.currentTarget.textContent)}>
-                Other
-              </li>
+              {categories.map((ctg, index) => (
+                <li
+                  key={index}
+                  onClick={(e) => setCateg(e.currentTarget.textContent)}
+                >
+                  {ctg}
+                </li>
+              ))}
             </ul>
           )}
           <input
@@ -85,7 +91,7 @@ const Transactions = () => {
             onChange={(e) => changeSum(e.target.value)}
           />
           <div className={s.mainBtns}>
-            <button type="button">Ввести</button>
+            <button type="button" onClick={addTransaction}>Ввести</button>
             <button type="button">Очистити</button>
           </div>
         </div>
@@ -110,3 +116,5 @@ const Transactions = () => {
     </section>
   );
 };
+
+export default Transactions;
