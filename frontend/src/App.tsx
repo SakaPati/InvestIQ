@@ -1,13 +1,11 @@
 import { Login } from "./components/authorization/login/Login"
-// import { Report } from "./components/Report/Report"
-import Chart from "./components/Chart/Chart"
+import { Report } from "./components/Report/Report"
 
 function App() {
 
   return (
     <>
-      {/* <Login /> */}
-      <Chart /> 
+      <Login />
       {/* <Report /> */}
     </>
   )
