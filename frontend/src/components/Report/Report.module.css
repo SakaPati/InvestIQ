@@ -1,5 +1,5 @@
 .container {
-  width: 282px;
+  width: 88%;
   margin: 0 auto;
 }
 
@@ -19,9 +19,6 @@
   text-transform: uppercase;
   text-align: center;
   color: #000;
-  /* background: none;
-  border: none;
-  cursor: pointer; */
 }
 
 .arrow {
@@ -29,4 +26,23 @@
   border: none;
   size: 48px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 88%;
+  }
+
+  .categoryWrapper {
+    gap: 20px;
+    padding-top: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .arrow {
+    size: 56px;
+  }
 }
