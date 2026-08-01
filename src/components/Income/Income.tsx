@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import icons from "../../../public/data/report.json";
 import { useSelector } from "react-redux";
 import { selectExpenseCategory } from "@/redux/transaction_selectors";
-import type { RootState } from "@/redux/slices/monthSlice";
+import type { RootState, Years } from "@/redux/slices/monthSlice";
 
 export type Category =
   | "Products"
@@ -72,19 +72,28 @@ type EnglishMonth = (typeof englishMonths)[number];
 
 type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
+
+
+
 export function Income({ category }: IncomeProps) {
   const [active, setActive] = useState<Category>("Products");
 
-  const data = useSelector(selectExpenseCategory);
+  const currentPeriodStats = useSelector(selectExpenseCategory);
 
-  const currentMonth = useSelector(
+  const month = useSelector(
     (state: RootState) => state.monthCalendar.month,
   );
 
-  const currentMonthName: EnglishMonth = englishMonths[currentMonth];
-  
-  //   const graphicData = data[currentMonthName]?.[active].transactions;
+  const year: Years = useSelector(
+    (state: RootState) => state.monthCalendar.year,
+  );
 
+  const currentMonthName: EnglishMonth = englishMonths[month];
+
+
+ const graphicData = currentPeriodStats[year][currentMonthName]?.[active].transactions;
+
+  
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setActive((previousCategory) =>
@@ -120,7 +129,7 @@ export function Income({ category }: IncomeProps) {
   return (
     <ul className={s.list}>
       {icons.map((icon) => {
-        const id = icon.id as Category;
+        const id = icon.id as Category; // example Products
         const Icon = mappedIcons[id];
 
         if (!Icon) {
@@ -129,7 +138,7 @@ export function Income({ category }: IncomeProps) {
 
         return (
           <li className={s.item} key={icon.id}>
-            <p className={s.sum}>{data[currentMonthName]?.[id].total}</p>
+            <p className={s.sum}>{currentPeriodStats[year][currentMonthName]?.[id].total}</p>
 
             <Icon
               className={id === active ? `${s.active} ${s.icon}` : s.icon}

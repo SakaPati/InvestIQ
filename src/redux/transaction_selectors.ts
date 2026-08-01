@@ -35,6 +35,8 @@ const months = [
 
 type Month = (typeof months)[number];
 
+const years = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027] as const;
+
 export interface ReturnedData {
   sum: number;
 }
@@ -67,10 +69,6 @@ export const selectTotalExpenseSum = createSelector(
   },
 );
 
-
-
-
-
 export interface CategoryData {
   transactions: Transaction[];
   total: number;
@@ -97,7 +95,9 @@ export interface ReturnedCategorySumData {
   other: number;
 }
 
-export type CategoriesByMonth = Record<Month, Categories>;
+type Years = 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027;
+
+export type CategoriesByPeriod = Record<Years, Record<Month, Categories>>;
 
 const createCategories = (): Categories => ({
   Products: { transactions: [], total: 0 },
@@ -115,38 +115,50 @@ const createCategories = (): Categories => ({
   Extra: { transactions: [], total: 0 },
 });
 
+const initialState = {
+  January: createCategories(),
+  February: createCategories(),
+  March: createCategories(),
+  April: createCategories(),
+  May: createCategories(),
+  June: createCategories(),
+  July: createCategories(),
+  August: createCategories(),
+  September: createCategories(),
+  October: createCategories(),
+  November: createCategories(),
+  December: createCategories(),
+};
+
 export type ReturnedCategoryData = Record<Category, CategoryData>;
 
 export const selectExpenseCategory = createSelector(
   [expenseSelectors.selectAll],
-  (expenses): CategoriesByMonth => {
-    return expenses.reduce<CategoriesByMonth>(
+  (expenses): CategoriesByPeriod => {
+    return expenses.reduce<CategoriesByPeriod>(
       (acc, transaction) => {
+        const year = years[new Date(transaction.date).getFullYear()];
         const month = months[new Date(transaction.date).getMonth()];
 
-        acc[month][transaction.category].transactions.push({
+        acc[year][month][transaction.category].transactions.push({
           name: transaction.title,
           value: transaction.sum,
           category: transaction.category,
         });
 
-        acc[month][transaction.category].total += transaction.sum;
+        acc[year][month][transaction.category].total += transaction.sum;
 
         return acc;
       },
       {
-        January: createCategories(),
-        February: createCategories(),
-        March: createCategories(),
-        April: createCategories(),
-        May: createCategories(),
-        June: createCategories(),
-        July: createCategories(),
-        August: createCategories(),
-        September: createCategories(),
-        October: createCategories(),
-        November: createCategories(),
-        December: createCategories(),
+        2020: initialState,
+        2021: initialState,
+        2022: initialState,
+        2023: initialState,
+        2024: initialState,
+        2025: initialState,
+        2026: initialState,
+        2027: initialState,
       },
     );
   },

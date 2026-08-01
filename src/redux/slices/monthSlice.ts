@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export type Years = 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026;
+
 interface CalendarState {
-  year: number;
+  year: Years;
   month: number;
 }
 
@@ -24,10 +26,9 @@ const ukrainianMonths: string[] = [
   "Грудень",
 ];
 
-const now = new Date();
 const initialState: CalendarState = {
-  year: now.getFullYear(),
-  month: now.getMonth(),
+  year: new Date().getFullYear(),
+  month: new Date().getMonth(),
 };
 
 export const monthSlice = createSlice({
