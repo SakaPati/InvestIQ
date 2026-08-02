@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container } from "../../utils/container/Container";
+import { Container } from "@/utils/container/Container";
 import s from "./Login.module.css";
 import {
     getMoney,
