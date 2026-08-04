@@ -11,7 +11,7 @@ export const Home = () => {
 
                     <p className={s.balance}>Баланс:</p>
                     <div className={s.balanceContainer}>
-                        <input type="text" placeholder="00.00 UAH" className={s.balanceInput} />
+                        <input type="number" placeholder="00.00 UAH" className={s.balanceInput} />
                         <button type="button" className={s.balanceButton}>підтвердити</button>
                     </div>
                 </div>

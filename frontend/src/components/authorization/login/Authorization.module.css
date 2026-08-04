@@ -291,3 +291,16 @@
     top: 631px;
   }
 }
+
+.errorText {
+  color: #e74c3c;
+  font-size: 12px;
+  margin: 4px 0 0 0;
+}
+
+.apiErrorText {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+}

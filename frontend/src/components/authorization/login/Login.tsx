@@ -26,8 +26,12 @@ export const Login = () => {
     const valid = (data: UserFormDate): FormErrors => {
         const newErrors: FormErrors = {};
 
-        if (!data.email || data.email.trim() === "") newErrors.email = "це обов’язкове поле";
-        if (!data.password || data.password.trim() === "") newErrors.password = "це обов’язкове поле";
+        if (!data.email || data.email.trim() === "") {
+            newErrors.email = "це обов’язкове поле";
+        }
+        if (!data.password || data.password.trim() === "") {
+            newErrors.password = "це обов’язкове поле";
+        }
 
         return newErrors;
     };
@@ -40,8 +44,8 @@ export const Login = () => {
         const formData = new FormData(e.currentTarget);
 
         const fields: UserFormDate = {
-            email: formData.get("email") as string,
-            password: formData.get("password") as string
+            email: (formData.get("email") as string) || "",
+            password: (formData.get("password") as string) || ""
         };
 
         const validationErrors: FormErrors = valid(fields);
@@ -61,7 +65,6 @@ export const Login = () => {
             console.log("Успешный вход:", response.data);
 
         } catch (error: any) {
-            console.error("Ошибка при авторизации:", error);
             const message = error.response?.data?.message || "Не вдалося увійти. Перевірте дані.";
             setApiError(message);
         } finally {
@@ -97,20 +100,30 @@ export const Login = () => {
                         <AuthButtons />
                         <p className={s.orRegisterTitle}>Або увійти за допомогою ел. пошти та паролю після реєстрації</p>
 
-                        <form onSubmit={handleSubmit} className={s.loginForm}>
+                        <form onSubmit={handleSubmit} className={s.loginForm} noValidate>
                             <div>
                                 <label htmlFor="useremail">Електронна пошта:</label>
-                                <input type="email" id="useremail" name="email" placeholder="your@email.com" required />
-                                {errors.email && <p style={{ color: 'red', margin: 0 }}>{errors.email}</p>}
+                                <input
+                                    type="email"
+                                    id="useremail"
+                                    name="email"
+                                    placeholder="your@email.com"
+                                />
+                                {errors.email && <p className={s.errorText}>{errors.email}</p>}
                             </div>
 
                             <div>
                                 <label htmlFor="password">Пароль:</label>
-                                <input type="password" id="password" name="password" placeholder="Пароль" required />
-                                {errors.password && <p style={{ color: 'red', margin: 0 }}>{errors.password}</p>}
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Пароль"
+                                />
+                                {errors.password && <p className={s.errorText}>{errors.password}</p>}
                             </div>
 
-                            {apiError && <p style={{ color: 'red', textAlign: 'center' }}>{apiError}</p>}
+                            {apiError && <p className={s.apiErrorText}>{apiError}</p>}
 
                             <div className={s.formActions}>
                                 <button type="submit" className={s.submitBtn} disabled={isLoading}>

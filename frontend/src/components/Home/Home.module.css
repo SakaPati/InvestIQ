@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
   margin-top: 37px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: baseline;
+  }
 }
 
 .calculations {
@@ -13,6 +18,15 @@
   letter-spacing: 0.04em;
   text-align: right;
   color: rgba(82, 85, 95, 0.7);
+
+  @media (min-width: 768px) {
+    order: 1;
+    margin-left: 80px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-left: 174px;
+  }
 }
 
 .graf {
@@ -23,6 +37,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    column-gap: 15px;
+  }
 }
 
 .balance {
@@ -50,8 +68,15 @@
   color: #000;
   border: 2px solid #000;
   border-radius: 22px 0 0 22px;
-  width: 125px;
-  height: 44px;
+  padding-right: 17px;
+
+  @media (min-width: 768px) {
+    border: 2px solid #000;
+    border-radius: 16px;
+    width: 125px;
+    height: 44px;
+    padding-right: 20px;
+  }
 }
 
 .balanceButton {
@@ -67,4 +92,11 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: rgba(82, 85, 95, 0.7);
+
+  @media (min-width: 768px) {
+    border: 2px solid #000;
+    border-radius: 16px;
+    width: 125px;
+    height: 44px;
+  }
 }
