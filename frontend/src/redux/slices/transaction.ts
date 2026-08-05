@@ -11,6 +11,11 @@ export interface Transaction {
   sum: number;
 }
 
+interface ChartData { 
+  bigData: Transaction[]
+}
+
+
 const expenseAdapter = createEntityAdapter<Transaction>();
 
 const incomeAdapter = createEntityAdapter<Transaction>();

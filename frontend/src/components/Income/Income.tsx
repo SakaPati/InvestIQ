@@ -19,6 +19,7 @@ import icons from "../../../public/data/report.json";
 import { useSelector } from "react-redux";
 import { selectExpenseCategory } from "@/redux/transaction_selectors";
 import type { RootState, Years } from "@/redux/slices/monthSlice";
+import Chart from "../Chart/Chart";
 
 export type Category =
   | "Products"
@@ -72,17 +73,12 @@ type EnglishMonth = (typeof englishMonths)[number];
 
 type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
-
-
-
 export function Income({ category }: IncomeProps) {
   const [active, setActive] = useState<Category>("Products");
 
   const currentPeriodStats = useSelector(selectExpenseCategory);
 
-  const month = useSelector(
-    (state: RootState) => state.monthCalendar.month,
-  );
+  const month = useSelector((state: RootState) => state.monthCalendar.month);
 
   const year: Years = useSelector(
     (state: RootState) => state.monthCalendar.year,
@@ -90,9 +86,11 @@ export function Income({ category }: IncomeProps) {
 
   const currentMonthName: EnglishMonth = englishMonths[month];
 
+  const graphicData =
+    currentPeriodStats[year][currentMonthName]?.[active].transactions;
 
- const graphicData = currentPeriodStats[year][currentMonthName]?.[active].transactions;
-
+  console.log(graphicData);
+  
   
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -127,28 +125,34 @@ export function Income({ category }: IncomeProps) {
   };
 
   return (
+    <>
     <ul className={s.list}>
       {icons.map((icon) => {
         const id = icon.id as Category; // example Products
         const Icon = mappedIcons[id];
-
+        
         if (!Icon) {
           return null;
         }
-
+        
         return (
           <li className={s.item} key={icon.id}>
-            <p className={s.sum}>{currentPeriodStats[year][currentMonthName]?.[id].total}</p>
+            <p className={s.sum}>
+              {currentPeriodStats[year][currentMonthName]?.[id].total}
+            </p>
 
             <Icon
               className={id === active ? `${s.active} ${s.icon}` : s.icon}
               onClick={() => handleActiveClick(id)}
-            />
+              />
 
             <h3 className={s.iconName}>{icon.title.toUpperCase()}</h3>
           </li>
         );
+        
       })}
-    </ul>
+      </ul>
+      <Chart bigData={graphicData} />
+      </>
   );
 }

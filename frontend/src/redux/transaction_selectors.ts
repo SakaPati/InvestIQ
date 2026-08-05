@@ -42,17 +42,17 @@ export interface ReturnedData {
 }
 
 export interface ReturnedCategorySumData {
-  products: number,
-  alcohol: number,
-  fun: number,
-  health: number,
-  transport: number,
-  home: number,
-  technic: number,
-  bills: number,
-  hobby: number,
-  learn: number,
-  other: number,
+  products: number;
+  alcohol: number;
+  fun: number;
+  health: number;
+  transport: number;
+  home: number;
+  technic: number;
+  bills: number;
+  hobby: number;
+  learn: number;
+  other: number;
 }
 
 // сума доходів
@@ -88,10 +88,9 @@ export interface CategoryData {
   total: number;
 }
 
-type Transaction = {
+export type Transaction = {
   name: string;
   value: number;
-  // date: string;
   category: string;
 };
 
@@ -114,7 +113,10 @@ type Years = 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027;
 export type CategoriesByPeriod = Record<Years, Record<Month, Categories>>;
 
 const createCategories = (): Categories => ({
-  Products: { transactions: [], total: 0 },
+  Products: {
+    transactions: [],
+    total: 0,
+  },
   Alcohol: { transactions: [], total: 0 },
   Fun: { transactions: [], total: 0 },
   Health: { transactions: [], total: 0 },
@@ -152,7 +154,7 @@ export const selectExpenseCategory = createSelector(
     return expenses.reduce<CategoriesByPeriod>(
       (acc, transaction) => {
         const year = years[new Date(transaction.date).getFullYear()];
-        const month = months[new Date(transaction.date).getMonth()];       
+        const month = months[new Date(transaction.date).getMonth()];
         acc[year][month][transaction.category].transactions.push({
           name: transaction.title,
           value: transaction.sum,

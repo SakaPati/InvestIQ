@@ -1,3 +1,4 @@
+import type { Transaction } from "@/redux/transaction_selectors";
 import {
   ResponsiveContainer,
   CartesianGrid,
@@ -8,24 +9,28 @@ import {
   Bar,
 } from "recharts";
 
-interface Category {
-  name: string;
-  value: number;
-  color: string;
-}
+// interface Category {
+//   name: string;
+//   value: number;
+//   color: string;
+// }
 
-const data: Category[] = [
-  { name: "Свинина", value: 5000, color: "#FF751D" },
-  { name: "Говядина", value: 4500, color: "#FFDAC0" },
-  { name: "Курятина", value: 3200, color: "#FFDAC0" },
-  { name: "Риба", value: 2100, color: "#FF751D" },
-  { name: "Паніни", value: 1800, color: "#FFDAC0" },
-  { name: "Кава", value: 1700, color: "#FFDAC0" },
-  { name: "Спагетті", value: 1500, color: "#FF751D" },
-  { name: "Шоколад", value: 800, color: "#FFDAC0" },
-  { name: "Маслини", value: 500, color: "#FFDAC0" },
-  { name: "Зелень", value: 300, color: "#FF751D" },
-];
+// const data: Category[] = [
+//   { name: "Свинина", value: 5000, color: "#FF751D" },
+//   { name: "Говядина", value: 4500, color: "#FFDAC0" },
+//   { name: "Курятина", value: 3200, color: "#FFDAC0" },
+//   { name: "Риба", value: 2100, color: "#FF751D" },
+//   { name: "Паніни", value: 1800, color: "#FFDAC0" },
+//   { name: "Кава", value: 1700, color: "#FFDAC0" },
+//   { name: "Спагетті", value: 1500, color: "#FF751D" },
+//   { name: "Шоколад", value: 800, color: "#FFDAC0" },
+//   { name: "Маслини", value: 500, color: "#FFDAC0" },
+//   { name: "Зелень", value: 300, color: "#FF751D" },
+// ];
+
+interface ChartData {
+  bigData: Transaction[];
+}
 
 const customBar = (data: any) => {
   const { x, y, width, height, payload } = data;
@@ -43,10 +48,12 @@ const customBar = (data: any) => {
   );
 };
 
-const Chart = () => {
+const Chart = ({ bigData }: ChartData) => {
+  // const newData = data.map(({category , ...}) )
+
   return (
     <ResponsiveContainer width="50%" height={400} style={{ margin: "0 auto" }}>
-      <BarChart data={data}>
+      <BarChart data={[bigData]}>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="name" />
         <YAxis hide />
