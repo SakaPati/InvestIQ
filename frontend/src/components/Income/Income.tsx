@@ -152,7 +152,7 @@ export function Income({ category }: IncomeProps) {
         
       })}
       </ul>
-      <Chart bigData={graphicData} />
+      <Chart bigData={graphicData ?? []} />
       </>
   );
 }

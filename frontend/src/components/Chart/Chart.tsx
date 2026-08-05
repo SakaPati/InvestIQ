@@ -1,4 +1,5 @@
 import type { Transaction } from "@/redux/transaction_selectors";
+import { BiData } from "react-icons/bi";
 import {
   ResponsiveContainer,
   CartesianGrid,
@@ -33,7 +34,7 @@ interface ChartData {
 }
 
 const customBar = (data: any) => {
-  const { x, y, width, height, payload } = data;
+  const { x, y, width, height } = data;
 
   return (
     <rect
@@ -41,7 +42,7 @@ const customBar = (data: any) => {
       y={y}
       width={width}
       height={height}
-      fill={payload.color}
+      fill="#FF751D"
       rx={10}
       ry={10}
     />
@@ -49,11 +50,12 @@ const customBar = (data: any) => {
 };
 
 const Chart = ({ bigData }: ChartData) => {
+  console.log(bigData);
   // const newData = data.map(({category , ...}) )
 
-  return (
+  return bigData ? (
     <ResponsiveContainer width="50%" height={400} style={{ margin: "0 auto" }}>
-      <BarChart data={[bigData]}>
+      <BarChart data={bigData}>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="name" />
         <YAxis hide />
@@ -61,7 +63,7 @@ const Chart = ({ bigData }: ChartData) => {
         <Bar dataKey="value" shape={customBar} />
       </BarChart>
     </ResponsiveContainer>
-  );
+  ) : null;
 };
 
 export default Chart;

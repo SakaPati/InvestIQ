@@ -118,7 +118,13 @@ const createCategories = (): Categories => ({
     total: 0,
   },
   Alcohol: { transactions: [], total: 0 },
-  Fun: { transactions: [], total: 0 },
+  Fun: {
+    transactions: [], total: 0
+  },
+  // { name: "add", value: 234, category: "wfwer" },
+  //     { name: "ssdfadd", value: 2324, category: "wfwer" },
+  //     { name: "a22dd", value: 2134, category: "wfwer" }
+  //   ,{name: "ad24d" , value: 1654 , category: "wfwer"}
   Health: { transactions: [], total: 0 },
   Transport: { transactions: [], total: 0 },
   Home: { transactions: [], total: 0 },
