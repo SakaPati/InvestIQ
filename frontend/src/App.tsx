@@ -1,16 +1,18 @@
 // import { Login } from "./components/authorization/login/Login"
-import { MonthChoose } from "./components/MonthChoose/MonthChoose"
-import { Report } from "./components/Report/Report"
+import { Route, Routes } from "react-router-dom";
+import { Report } from "./components/Report/Report";
+import { Login } from "./components/authorization/login/Login";
 
 function App() {
-
   return (
     <>
       {/* <Login /> */}
-            <MonthChoose />
-      <Report />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/report" element={<Report />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
