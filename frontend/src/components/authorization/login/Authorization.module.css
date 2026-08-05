@@ -1,0 +1,277 @@
+.loginSection {
+  position: relative;
+  margin-top: 3.875rem;
+  padding: 0 0.625rem;
+}
+
+.mobileIcons img:nth-child(1) {
+  position: absolute;
+  top: 1.25rem;
+  left: 16.1875rem;
+}
+
+.mobileIcons img:nth-child(2) {
+  position: absolute;
+  top: 655px;
+  left: 0;
+}
+
+.tableIcons,
+.desktopIcons,
+.footerIcons {
+  display: none;
+}
+
+.heroSec {
+  position: relative;
+  margin: 0 29px;
+}
+
+.title {
+  font-family: var(--font-main);
+  font-weight: 900;
+  font-size: 4rem;
+  color: #000;
+}
+
+.subTitle {
+  width: 141px;
+  height: 12px;
+  margin-left: 1.375rem;
+  color: #52555f;
+  text-transform: uppercase;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #52555f;
+}
+
+.loginSec {
+  margin-top: 50px;
+  border-radius: 30px;
+  width: 300px;
+  height: 525px;
+  box-shadow: 5px 10px 20px 0 rgba(170, 178, 197, 0.4);
+  background: #fff;
+}
+
+.googleAuthTitle {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding-top: 40px;
+  text-align: center;
+  color: #52555f;
+  margin: 0 auto;
+}
+
+.googleAuthButton {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: #000;
+  border-radius: 26px;
+  width: 122px;
+  height: 40px;
+  background: #f6f7fb;
+  box-shadow: 1px 2px 3px 0 rgba(170, 178, 197, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  margin: 20px auto 30px auto;
+}
+
+.orRegisterTitle {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  width: 242px;
+  color: #52555f;
+  margin: 0 auto 20px auto;
+}
+
+.loginForm div:not(.formActions) {
+  display: flex;
+  flex-direction: column;
+  width: 253px;
+  margin: 0 auto;
+}
+
+.loginForm input {
+  border-radius: 30px;
+  height: 52px;
+  background: #f6f7fb;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #a6abb9;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+.loginForm label {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #000;
+}
+
+.loginForm div:nth-child(2) {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+}
+
+.formActions button {
+  border-radius: 16px;
+  width: 125px;
+  height: 44px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.submitBtn {
+  background: #ff751d;
+  font-family: var(--font-main);
+  color: #fff;
+  box-shadow: 4px 4px 10px rgba(255, 117, 29, 0.3);
+}
+
+.registerBtn {
+  background: #f5f6fb;
+  font-family: var(--font-main);
+  color: #52555f;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .icons .mobileIcons,
+  .desktopIcons {
+    display: none;
+  }
+
+  .tableIcons,
+  .footerIcons {
+    display: block;
+  }
+
+  .icons .tableIcons {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding-top: 20px;
+    width: 100%;
+    height: 526px;
+    background-color: #f5f6fb;
+    border-bottom-left-radius: 135px;
+    z-index: 0;
+  }
+
+  .tableIcons img {
+    margin: 0 auto;
+  }
+
+  .footerIcons {
+    position: absolute;
+    top: 754px;
+    left: 103px;
+    padding-bottom: 56px;
+  }
+
+  .heroSec {
+    padding-top: 60px;
+  }
+
+  .loginSec {
+    position: relative;
+    width: 436px;
+  }
+
+  .title {
+    font-size: 6.375rem;
+  }
+
+  .subTitle {
+    width: 162px;
+    height: 19px;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    margin-left: 3.625rem;
+  }
+
+  .googleAuthTitle {
+    padding-top: 50px;
+    width: 256px;
+    text-align: start;
+  }
+
+  .loginForm input {
+    width: 265px;
+  }
+
+  .loginForm div:not(.formActions) {
+    display: flex;
+    flex-direction: column;
+    width: 259px;
+    margin: 0 auto;
+  }
+
+  .loginForm div:nth-child(1) {
+    margin-bottom: 30px;
+  }
+
+  .formActions {
+    width: 265px;
+    margin: 40px auto 0 auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tableIcons {
+    display: none;
+  }
+
+  .desktopIcons {
+    display: block;
+    position: absolute;
+    top: 14px;
+    left: 10px;
+  }
+
+  .heroSec {
+    width: 385px;
+    margin: 0 auto;
+  }
+  .formSection {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    column-gap: 119px;
+    top: 0;
+    left: 15%;
+    margin-top: 115px;
+  }
+  .loginSec {
+    margin-top: 0;
+  }
+
+  .footerIcons {
+    left: 130px;
+  }
+}

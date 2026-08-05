@@ -1,0 +1,85 @@
+.section {
+  border-radius: 20px;
+  box-shadow: 5px 10px 20px 0 rgba(170, 178, 197, 0.4);
+  background: #fff;
+  padding: 30px 20px;
+  margin: 0 auto;
+  width: 88%;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  color: #52555f;
+}
+
+.sum {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.income {
+  color: #e53935;
+}
+
+.expense {
+  color: #407946;
+}
+
+@media screen and (min-width: 468px) {
+  .list {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 195px;
+  }
+
+  .first::after {
+    content: "";
+    height: 1px;
+    background: #bbb;
+    color: #bbb;
+  }
+
+  .category {
+    font-size: 16px;
+  }
+
+  .sum {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .section {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Продукти",
+    "id": "Products"
+  },
+  {
+    "title": "Алкоголь",
+    "id": "Alcohol"
+  },
+  {
+    "title": "Розваги",
+    "id": "Fun"
+  },
+  {
+    "title": "Здоров'я",
+    "id": "Health"
+  },
+  {
+    "title": "Транспорт",
+    "id": "Transport"
+  },
+  {
+    "title": "Все для дому",
+    "id": "Home"
+  },
+  {
+    "title": "Техніка",
+    "id": "Technic"
+  },
+  {
+    "title": "Комуналка, \n Зв'язок",
+    "id": "Bills"
+  },
+  {
+    "title": "Спорт, Хобі",
+    "id": "Hobby"
+  },
+  {
+    "title": "Навчання",
+    "id": "Learn"
+  },
+  {
+    "title": "Інше",
+    "id": "Other"
+  },
+  {
+    "title": "Зп",
+    "id": "Salary"
+  },
+  {
+    "title": "Дод. дохід",
+    "id": "Extra"
+  }
+]
