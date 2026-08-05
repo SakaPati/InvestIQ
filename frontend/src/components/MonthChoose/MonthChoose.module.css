@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 10px;
   width: 167px;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .textWrapper {
@@ -50,6 +50,7 @@
 .icon {
   color: #ff751d;
 }
+
 
 @media screen and (min-width: 1024px) {
   .title {
