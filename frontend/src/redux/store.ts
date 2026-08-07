@@ -40,6 +40,7 @@ export const store = configureStore({
   reducer: {
     user: persistedUserReducer,
     transactions: transactionsReducer,
+    monthCalendar: monthSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

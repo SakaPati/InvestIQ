@@ -13,13 +13,13 @@ export function Sum() {
   return (
     <section className={s.section}>
       <ul className={s.list}>
-        <li className={s.item}>
+        <li className={`${s.item} ${s.first}`}>
           <p className={s.category}>Доходи:</p>
-          <span className={`${s.expense} ${s.sum}`}>+ {incomeSum.sum}</span>
+          <span className={`${s.expense} ${s.sum}`}>+ {incomeSum.sum} грн.</span>
         </li>
         <li className={s.item}>
           <p className={s.category}>Витрати:</p>
-          <span className={`${s.income} ${s.sum}`}>- {expenseSum.sum}</span>
+          <span className={`${s.income} ${s.sum}`}>- {expenseSum.sum} грн.</span>
         </li>
       </ul>
     </section>
