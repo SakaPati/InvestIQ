@@ -17,7 +17,7 @@ import s from "./Income.module.css";
 import { useEffect, useState } from "react";
 import icons from "../../../public/data/report.json";
 import { useSelector } from "react-redux";
-import { selectExpenseCategory } from "@/redux/selectors/transaction_selectors";
+import { selectExpenseCategory } from "../../redux/selectors/transaction_selectors";
 import type { RootState, Years } from "@/redux/slices/monthSlice";
 import { selectLastSixMonthsExpenses } from "@/redux/selectors/stats_selectors";
 

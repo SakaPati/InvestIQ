@@ -35,7 +35,7 @@ const months = [
   "December",
 ] as const;
 
-type Month = (typeof months)[number];
+export type Month = (typeof months)[number];
 
 export interface ReturnedData {
   sum: number;
@@ -160,7 +160,7 @@ export interface ReturnedCategorySumData {
   other: number;
 }
 
-type Years =
+export type Years =
   | 2020
   | 2021
   | 2022
@@ -313,5 +313,3 @@ export const selectIncomeCategory = createSelector(
     }, createYear());
   },
 );
-
-

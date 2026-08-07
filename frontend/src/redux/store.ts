@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { userSlice } from './slices/user'
+import { configureStore } from "@reduxjs/toolkit";
+import { userSlice } from "./slices/user";
 import transactionsReducer from "./slices/transaction";
 import { monthSlice } from './slices/monthSlice';
 import {

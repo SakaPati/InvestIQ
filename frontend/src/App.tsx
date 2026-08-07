@@ -1,19 +1,26 @@
-// import { Login } from "./components/authorization/login/Login"
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./components/Home/Home";
 import { Report } from "./components/Report/Report";
 // import { Login } from "./components/authorization/login/Login";
-import Transactions from "./components/transactions/Transactions";
+// import Transactions from "./components/transactions/Transactions";
 import Header from "./components/Header/Header";
+// import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
+import { NotFound } from "./components/NotFound/NotFound";
+// import { Login } from "./components/authorization/login/Login";
+import Summary from "./components/Summary/SummarySection";
 
 function App() {
   return (
     <>
       {/* <Login /> */}
       <Header />
-      <Routes>
-        <Route path="/" element={<Transactions />} />
+    <Routes>
+        <Route path="/stats" element={<Summary />} />
+        <Route path="/" element={<Home />} />
         <Route path="/report" element={<Report />} />
-      </Routes>
+
+      <Route path="*" element={<NotFound />} />
+    </Routes>
     </>
   );
 }

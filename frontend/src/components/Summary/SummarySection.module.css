@@ -1,0 +1,161 @@
+.section {
+  width: min(100%, 420px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+  background: #ffffff;
+}
+
+.table {
+  width: min(100%, 330px);
+  overflow: hidden;
+  border-radius: 30px 30px 28px 0;
+  background: #f1f3f9;
+}
+
+.title {
+  margin: 0;
+  padding: 25px 24px 24px;
+  color: #0d0d0f;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.body {
+  display: grid;
+  gap: 4px;
+  border-top: 4px solid #ffffff;
+  background: #ffffff;
+}
+
+.row {
+  min-height: 68px;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background: #f1f3f9;
+  color: #5b5f6b;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.month {
+  text-transform: uppercase;
+}
+
+.amount {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.decor {
+  position: relative;
+  width: min(100%, 380px);
+  height: 190px;
+}
+
+.iconGroup {
+  position: absolute;
+  inset: 0;
+}
+
+.billsIcon,
+.chartIcon {
+  position: absolute;
+  width: 112px;
+  opacity: 0.42;
+  filter: brightness(0) saturate(100%) invert(90%) sepia(9%) saturate(338%) hue-rotate(188deg) brightness(98%) contrast(93%);
+  z-index: 2;
+}
+
+.billsIcon {
+  left: 58px;
+  top: 14px;
+  transform: rotate(24deg);
+}
+
+.chartIcon {
+  right: 42px;
+  top: 22px;
+  transform: rotate(-18deg);
+}
+
+.ellipse {
+  position: absolute;
+  width: 126px;
+  height: auto;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.ellipseLeft {
+  left: 66px;
+  bottom: -33px;
+}
+
+.ellipseRight {
+  right: 36px;
+  bottom: -18px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    width: 100%;
+    padding: 74px clamp(54px, 8vw, 92px);
+    display: grid;
+    grid-template-columns: 330px minmax(330px, 480px);
+    align-items: center;
+    justify-content: space-between;
+    gap: 44px;
+  }
+
+  .table {
+    width: 330px;
+  }
+
+  .decor {
+    width: min(100%, 430px);
+    height: 230px;
+  }
+
+  .billsIcon,
+  .chartIcon {
+    width: 142px;
+  }
+
+  .billsIcon {
+    left: 28px;
+    top: 38px;
+    transform: rotate(23deg);
+  }
+
+  .chartIcon {
+    right: 24px;
+    top: 40px;
+    transform: rotate(-17deg);
+  }
+
+  .ellipse {
+    width: 158px;
+  }
+
+  .ellipseLeft {
+    left: 28px;
+    bottom: -27px;
+  }
+
+  .ellipseRight {
+    right: 8px;
+    bottom: 3px;
+  }
+}

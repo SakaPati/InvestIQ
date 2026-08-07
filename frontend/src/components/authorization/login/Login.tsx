@@ -1,4 +1,8 @@
 import { useState } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "@/redux/slices/user";
 import { Container } from "../../utils/container/Container";
 import s from "./Authorization.module.css";
 import {
@@ -9,43 +13,104 @@ import {
     loginHeroBackgroundDesk
 } from "@/assets";
 import { AuthButtons } from "./AuthButton";
+import { jwtDecode } from "jwt-decode";
 
 interface UserFormDate {
-    email: string,
-    password: string
+    email: string;
+    password: string;
+}
+
+interface JwtPayload {
+    sub?: string;
+    email?: string;
+    exp?: number;
+    iat?: number;
 }
 
 type FormErrors = Partial<Record<keyof UserFormDate, string>>;
 
 export const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [errors, setErrors] = useState<FormErrors>({});
+    const [isLoading, setIsLoading] = useState(false);
+    const [apiError, setApiError] = useState<string | null>(null);
 
     const valid = (data: UserFormDate): FormErrors => {
-        const newErros: FormErrors = {};
+        const newErrors: FormErrors = {};
 
-        if (!data.email || data.email.trim() === "") newErros.email = "це обов’язкове поле"
-        if (!data.password || data.password.trim() === "") newErros.password = "це обов’язкове поле"
+        if (!data.email || data.email.trim() === "") {
+            newErrors.email = "це обов’язкове поле";
+        }
+        if (!data.password || data.password.trim() === "") {
+            newErrors.password = "це обов’язкове поле";
+        }
 
-        return newErros;
-    }
+        return newErrors;
+    };
 
-    const handleSubmite = (e: React.SubmitEvent<HTMLFormElement>) => {
-        e.preventDefault()
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         setErrors({});
+        setApiError(null);
 
-        const formDate = new FormData(e.currentTarget)
+        const formData = new FormData(e.currentTarget);
 
         const fields: UserFormDate = {
-            email: formDate.get("email") as string,
-            password: formDate.get("password") as string
-        }
+            email: (formData.get("email") as string) || "",
+            password: (formData.get("password") as string) || ""
+        };
 
         const validationErrors: FormErrors = valid(fields);
         if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors)
+            setErrors(validationErrors);
             return;
         }
-    }
+
+        try {
+            setIsLoading(true);
+            const response = await axios.post("/api/user/login", fields, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const token = response.data.token;
+
+            let decodedSub = fields.email.split("@")[0];
+            let decodedEmail = fields.email;
+
+            if (token) {
+                try {
+                    const payload = jwtDecode<JwtPayload>(token);
+                    if (payload.sub) decodedSub = payload.sub;
+                    if (payload.email) decodedEmail = payload.email;
+                } catch (e) {
+                    console.error("Ошибка парсинга JWT:", e);
+                }
+            }
+
+            dispatch(
+                login({
+                    username: decodedSub,
+                    email: decodedEmail,
+                    avatar: null,
+                    token: token,
+                    balance: 0,
+                    isLoggedIn: true,
+                })
+            );
+
+            navigate("/");
+
+        } catch (error: any) {
+            const message = error.response?.data?.message || "Не вдалося увійти. Перевірте дані.";
+            setApiError(message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return (
         <section className={s.loginSection}>
@@ -74,21 +139,36 @@ export const Login = () => {
                         <h2 className={s.googleAuthTitle}>Ви можете авторизуватися за допомогою акаунта Google</h2>
                         <AuthButtons />
                         <p className={s.orRegisterTitle}>Або увійти за допомогою ел. пошти та паролю після реєстрації</p>
-                        <form onSubmit={handleSubmite} className={s.loginForm}>
+
+                        <form onSubmit={handleSubmit} className={s.loginForm} noValidate>
                             <div>
                                 <label htmlFor="useremail">Електронна пошта:</label>
-                                <input type="email" id="useremail" name="email" placeholder="your@email.com" required />
-                                {errors.email && <p>{errors.email}</p>}
+                                <input
+                                    type="email"
+                                    id="useremail"
+                                    name="email"
+                                    placeholder="your@email.com"
+                                />
+                                {errors.email && <p className={s.errorText}>{errors.email}</p>}
                             </div>
 
                             <div>
                                 <label htmlFor="password">Пароль:</label>
-                                <input type="text" id="password" name="password" placeholder="Пароль" required />
-                                {errors.password && <p style={{ color: 'red', margin: 0 }}>{errors.password}</p>}
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Пароль"
+                                />
+                                {errors.password && <p className={s.errorText}>{errors.password}</p>}
                             </div>
 
+                            {apiError && <p className={s.apiErrorText}>{apiError}</p>}
+
                             <div className={s.formActions}>
-                                <button type="submit" className={s.submitBtn}>Увійти</button>
+                                <button type="submit" className={s.submitBtn} disabled={isLoading}>
+                                    {isLoading ? "Вхід..." : "Увійти"}
+                                </button>
                                 <button type="button" className={s.registerBtn}>Реєстрація</button>
                             </div>
                         </form>
@@ -96,5 +176,5 @@ export const Login = () => {
                 </div>
             </Container>
         </section>
-    )
-}
+    );
+};

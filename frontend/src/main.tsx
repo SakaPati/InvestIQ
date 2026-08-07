@@ -8,18 +8,19 @@ import "./index.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { PersistGate } from "redux-persist/integration/react";
 
-const CLIETN_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || "";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/InvestIQ/">
-        <GoogleOAuthProvider clientId={CLIETN_ID}>
-          <PersistGate loading={null} persistor={persistor}>
+
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/InvestIQ/">
+          <GoogleOAuthProvider clientId={CLIENT_ID}>
             <App />
-          </PersistGate>
-        </GoogleOAuthProvider>
-      </BrowserRouter>
+          </GoogleOAuthProvider>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </StrictMode>,
-);
+)

@@ -2,7 +2,6 @@ import GoogleLogo from "./google-logo.svg?react";
 import Logo from "./logo.svg?react";
 import Previous from "./prev.svg?react";
 import Next from "./next.svg?react";
-
 import Products from "./products.svg?react";
 import Bills from "./bills.svg?react";
 import Learn from "./book.svg?react";
@@ -16,6 +15,7 @@ import Other from "./other.svg?react";
 import Technic from "./technic.svg?react";
 import Salary from "./salary.svg?react";
 import Extra from "./extra.svg?react";
+import Graf from "./graf.svg?react";
 
 export {
   GoogleLogo,
@@ -34,5 +34,6 @@ export {
   Learn,
   Other,
   Salary,
-  Extra
+  Extra,
+  Graf
 };
