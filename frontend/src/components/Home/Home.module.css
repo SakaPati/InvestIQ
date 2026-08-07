@@ -66,12 +66,12 @@
   text-transform: uppercase;
   text-align: right;
   color: #000;
-  border: 2px solid #000;
+  border: 2px solid #FFF;
   border-radius: 22px 0 0 22px;
   padding-right: 17px;
 
   @media (min-width: 768px) {
-    border: 2px solid #000;
+    border: 2px solid #FFF;
     border-radius: 16px;
     width: 125px;
     height: 44px;
@@ -82,7 +82,7 @@
 .balanceButton {
   width: 125px;
   height: 44px;
-  border: 2px solid #000;
+  border: 2px solid #FFF;
   border-radius: 0 22px 22px 0;
   width: 125px;
   height: 44px;
@@ -94,7 +94,7 @@
   color: rgba(82, 85, 95, 0.7);
 
   @media (min-width: 768px) {
-    border: 2px solid #000;
+    border: 2px solid #FFF;
     border-radius: 16px;
     width: 125px;
     height: 44px;
