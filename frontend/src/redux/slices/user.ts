@@ -5,7 +5,8 @@ export interface CounterState {
   avatar: null | string;
   email: null | string;
   isLoggedIn: boolean;
-  // token: null | string;
+  token: null | string;
+  balance: null | number;
 }
 
 const initialState: CounterState = {
@@ -13,7 +14,8 @@ const initialState: CounterState = {
   avatar: null,
   email: null,
   isLoggedIn: false,
-  // token: null,
+  token: null,
+  balance: null,
 };
 
 export const userSlice = createSlice({
@@ -25,17 +27,20 @@ export const userSlice = createSlice({
       state.avatar = action.payload.avatar;
       state.email = action.payload.email;
       state.isLoggedIn = true;
-      // state.token = action.payload.token;
+      state.token = action.payload.token;
+      state.balance = action.payload.balance;
     },
     logout: (state) => {
       state.username = null;
       state.avatar = null;
       state.email = null;
       state.isLoggedIn = false;
+      state.token = null;
+      state.balance = null;
     },
   },
 });
 
-export const { login, logout } = userSlice.actions
+export const { login, logout } = userSlice.actions;
 
 export default userSlice.reducer;

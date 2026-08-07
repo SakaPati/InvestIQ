@@ -93,6 +93,8 @@ export function Income({ category }: IncomeProps) {
 
  const graphicData = currentPeriodStats[year][currentMonthName]?.[active].transactions;
 
+ console.log(graphicData)
+
   
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
