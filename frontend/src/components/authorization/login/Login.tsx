@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "@/redux/slices/user";
 import { Container } from "../../utils/container/Container";
 import s from "./Authorization.module.css";
 import {
@@ -10,15 +13,26 @@ import {
     loginHeroBackgroundDesk
 } from "@/assets";
 import { AuthButtons } from "./AuthButton";
+import { jwtDecode } from "jwt-decode";
 
 interface UserFormDate {
     email: string;
     password: string;
 }
 
+interface JwtPayload {
+    sub?: string;
+    email?: string;
+    exp?: number;
+    iat?: number;
+}
+
 type FormErrors = Partial<Record<keyof UserFormDate, string>>;
 
 export const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [errors, setErrors] = useState<FormErrors>({});
     const [isLoading, setIsLoading] = useState(false);
     const [apiError, setApiError] = useState<string | null>(null);
@@ -62,7 +76,33 @@ export const Login = () => {
                 }
             });
 
-            console.log("Успешный вход:", response.data);
+            const token = response.data.token;
+
+            let decodedSub = fields.email.split("@")[0];
+            let decodedEmail = fields.email;
+
+            if (token) {
+                try {
+                    const payload = jwtDecode<JwtPayload>(token);
+                    if (payload.sub) decodedSub = payload.sub;
+                    if (payload.email) decodedEmail = payload.email;
+                } catch (e) {
+                    console.error("Ошибка парсинга JWT:", e);
+                }
+            }
+
+            dispatch(
+                login({
+                    username: decodedSub,
+                    email: decodedEmail,
+                    avatar: null,
+                    token: token,
+                    balance: 0,
+                    isLoggedIn: true,
+                })
+            );
+
+            navigate("/");
 
         } catch (error: any) {
             const message = error.response?.data?.message || "Не вдалося увійти. Перевірте дані.";
