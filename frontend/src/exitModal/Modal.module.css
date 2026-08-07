@@ -1,0 +1,124 @@
+@media (max-width: 768px) {
+  .modal {
+    padding: 40px 32px 32px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal {
+    padding: 36px 20px 24px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .closeButton {
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+  }
+
+  .confirmBtn,
+  .cancelBtn {
+    padding: 12px 0;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(33, 33, 33, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .modal {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 28px;
+    padding: 48px 40px 40px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #555;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.2s;
+  }
+
+  .closeButton:hover {
+    opacity: 0.6;
+  }
+
+  .title {
+    margin: 0 0 32px 0;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .confirmBtn,
+  .cancelBtn {
+    flex: 1;
+    padding: 14px 0;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      opacity 0.2s ease,
+      transform 0.1s ease;
+  }
+
+  .confirmBtn:active,
+  .cancelBtn:active {
+    transform: scale(0.97);
+  }
+
+  .confirmBtn {
+    background-color: #ff7426;
+    color: #ffffff;
+    border: none;
+  }
+
+  .confirmBtn:hover {
+    background-color: #e66822;
+  }
+
+  .cancelBtn {
+    background-color: #ffffff;
+    color: #555;
+    border: 1px solid #e0e0e0;
+  }
+
+  .cancelBtn:hover {
+    background-color: #f5f5f5;
+  }
+}
