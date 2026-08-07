@@ -1,5 +1,5 @@
 import { IoCloseSharp } from "react-icons/io5"; 
-import s from './Modal.module.css';
+import s from "./Modal.module.css";
 
 interface ModalProps {
   isOpen: boolean;
