@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { monthSlice } from "./slices/monthSlice";
 
 const storage = {
   getItem(key: string) {

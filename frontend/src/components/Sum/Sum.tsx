@@ -4,7 +4,7 @@ import {
   selectTotalExpenseSum,
   selectTotalIncomeSum,
   type ReturnedData,
-} from "@/redux/transaction_selectors";
+} from "../../redux/selectors/transaction_selectors";
 
 export function Sum() {
   const expenseSum: ReturnedData = useSelector(selectTotalExpenseSum);
