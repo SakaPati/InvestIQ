@@ -1,6 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { incomeSelectors, expenseSelectors } from "./slices/transaction";
+import { incomeSelectors, expenseSelectors } from "../slices/transaction";
 import type { Category } from "@/components/Income/Income";
+
+export type SumByPeriod = Record<Years, Record<Month, Sum>>;
 
 type Categories = {
   Products: CategoryData;
@@ -53,16 +55,58 @@ export interface ReturnedCategorySumData {
   other: number;
 }
 
+
+type Sum = {
+  sum: number
+};
+
+const createSum = (): Sum => ({
+  sum: 0
+});
+
+const createM = (): Record<Month, Sum> => ({
+  January: createSum(),
+  February: createSum(),
+  March: createSum(),
+  April: createSum(),
+  May: createSum(),
+  June: createSum(),
+  July: createSum(),
+  August: createSum(),
+  September: createSum(),
+  October: createSum(),
+  November: createSum(),
+  December: createSum(),
+});
+
+const createY = (): SumByPeriod => ({
+  2020: createM(),
+  2021: createM(),
+  2022: createM(),
+  2023: createM(),
+  2024: createM(),
+  2025: createM(),
+  2026: createM(),
+  2027: createM(),
+  2028: createM(),
+  2029: createM(),
+  2030: createM(),
+});
+
 // сума доходів
 export const selectTotalIncomeSum = createSelector(
   [incomeSelectors.selectAll],
-  (incomes): ReturnedData => {
+  (incomes): SumByPeriod => {
     return incomes.reduce(
       (total, income) => {
-        total.sum += income.sum;
+        const date = new Date(income.date);
+        const year = date.getFullYear() as Years;
+        const month = months[date.getMonth()];
+        
+        total[year][month].sum += income.sum
         return total;
       },
-      { sum: 0 },
+      createY()
     );
   },
 );
@@ -70,16 +114,25 @@ export const selectTotalIncomeSum = createSelector(
 // сума витрат
 export const selectTotalExpenseSum = createSelector(
   [expenseSelectors.selectAll],
-  (expenses): ReturnedData => {
+  (expenses): SumByPeriod => {
     return expenses.reduce(
       (total, expense) => {
-        total.sum += expense.sum;
+       const date = new Date(expense.date);
+
+      const year = date.getFullYear() as Years;
+      const month = months[date.getMonth()];
+
+      total[year][month].sum += expense.sum;
         return total;
       },
-      { sum: 0 },
+      createY()
     );
   },
 );
+
+
+
+// types
 
 export interface CategoryData {
   transactions: Transaction[];
@@ -169,25 +222,96 @@ const createYear = (): CategoriesByPeriod => ({
 
 export type ReturnedCategoryData = Record<Category, CategoryData>;
 
+const isYear = (year: number): year is Years => {
+  return year >= 2020 && year <= 2030;
+};
+
+const isCategory = (category: string): category is keyof Categories => {
+  return category in createCategories();
+};
+
+// graphs data + total sum of each category
+
 export const selectExpenseCategory = createSelector(
   [expenseSelectors.selectAll],
   (expenses): CategoriesByPeriod => {
     return expenses.reduce<CategoriesByPeriod>((acc, transaction) => {
       const date = new Date(transaction.date);
 
-      const year = new Date(transaction.date).getFullYear() as Years;
-      const month = months[date.getMonth()];
-      const category = transaction.category as keyof Categories;
+      if (Number.isNaN(date.getTime())) {
+        return acc;
+      }
 
-      acc[year][month][category].transactions.push({
+      const year = date.getFullYear();
+      const month = months[date.getMonth()];
+      const category = transaction.category;
+
+      if (!isYear(year)) {
+        return acc;
+      }
+
+      if (!month) {
+        return acc;
+      }
+
+      if (!isCategory(category)) {
+        return acc;
+      }
+
+      const categoryData = acc[year][month][category];
+
+      categoryData.transactions.push({
         name: transaction.title,
         value: transaction.sum,
         category,
       });
 
-      acc[year][month][category].total += transaction.sum;
+      categoryData.total += transaction.sum;
 
       return acc;
     }, createYear());
   },
 );
+
+export const selectIncomeCategory = createSelector(
+  [incomeSelectors.selectAll],
+  (incomes): CategoriesByPeriod => {
+    return incomes.reduce<CategoriesByPeriod>((acc, transaction) => {
+      const date = new Date(transaction.date);
+
+      if (Number.isNaN(date.getTime())) {
+        return acc;
+      }
+
+      const year = date.getFullYear();
+      const month = months[date.getMonth()];
+      const category = transaction.category;
+
+      if (!isYear(year)) {
+        return acc;
+      }
+
+      if (!month) {
+        return acc;
+      }
+
+      if (!isCategory(category)) {
+        return acc;
+      }
+
+      const categoryData = acc[year][month][category];
+
+      categoryData.transactions.push({
+        name: transaction.title,
+        value: transaction.sum,
+        category,
+      });
+
+      categoryData.total += transaction.sum;
+
+      return acc;
+    }, createYear());
+  },
+);
+
+
