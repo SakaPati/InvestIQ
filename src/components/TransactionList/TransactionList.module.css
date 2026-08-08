@@ -1,0 +1,823 @@
+.table {
+  width: 100%;
+  height: 130px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.tablebody {
+  display: column;
+  
+  /* align-items: center;
+  justify-content: center;
+  order: 1; 
+  text-align: center; */
+}
+
+.TabsMobile{
+  display: none;
+}
+/* 
+.line{
+    height: 1px;
+    width: 200px;
+    background-color: #f5f6fb;
+} */
+
+.tableBody-cell-button-img{
+  
+}
+
+
+@media (max-width: 768px) {
+  .table{
+  border-collapse: separate; /* Важно: раздельные границы */
+  border-spacing: 0; 
+  gap: 10px;
+  margin:  0 auto;
+  }
+  .tablehead {
+  display: none;
+}
+/* .tablebody{
+  margin: 0 auto;
+  display: column
+} */
+
+ .tableBody-button{
+
+    width: 125px;
+    height: 44px;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    background: #FF751D;
+    border-radius: 16px;
+  }
+    .tableBody-button2{
+
+    width: 125px;
+    height: 44px;
+    color: #52555F;
+    font-size: 12px;
+    text-align: center;
+    background: #F6F7FC;
+    border-radius: 16px;
+  }
+
+.back{
+  position:absolute;
+  z-index: -1;
+  right: 0;
+  top: -150px;;
+}
+
+.tableBody-button-box{
+  display: flex;
+}
+.tableBody-cell-amount{
+    font-family: var(--font-family);
+  font-weight: 700;
+  /* text-align: left; */
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #52555f;
+  /* order: 1; */
+}
+.tableBody-button{
+  display: none;
+}
+.tableBody-button2{
+  display: none;
+}
+.Tabs{
+  display: none;
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 83px;
+  gap: 15px;
+}
+.box-balance{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+
+.balance{
+  display: flex;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: right;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 22px 0 0 22px;
+  width: 125px;
+  height: 44px;
+}
+
+.confirm{
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  border-radius: 0 22px 22px 0;
+  width: 125px;
+  height: 44px;
+  color: rgba(82, 85, 95, 0.7);
+  outline: -1;
+}
+.info-selectExpenseActive{
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  text-align: center;
+
+  height: 40px;
+   width: 171px;
+}.info-selectExpenseActive{
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  text-align: center;
+
+  height: 40px;
+   width: 171px;
+}
+.balance-text{
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: rgba(82, 85, 95, 0.7);
+}
+.butto-arrow{
+  position: absolute;
+  left: 0;
+    width: 18px;
+  height: 18px;
+}
+
+.arrow{
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  color: #FF751D;
+}
+
+.info-selectActive{
+    border: 2px solid #fff;
+  font-family: var(--font-family);
+  font-weight: 400;
+  border-radius:0 0 16px 0;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  text-align: center;
+
+  height: 40px;
+  width: 282px;
+}
+.info-calculator{
+  /* margin-bottom: 0; */
+  /* align-items: center; */
+}
+
+.confirm:hover{
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 0 22px 22px 0;
+  width: 125px;
+  height: 44px;
+  background: #ff751d;
+  outline: -1;
+}
+.info-const{
+    font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  
+  /* background: #f5f6fb; */
+  text-align: center;
+/* border-radius:0 0 0 16px; */
+
+  height: 40px;
+  width: 104px;
+}
+.info-input{
+  width: 282px;
+  height: 44px;
+  border-radius: 16px 16px 0 0 ;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  border: 2px solid #fff;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  
+  /* background: #f5f6fb; */
+  text-align: center;
+
+
+  /* height: 40px;
+  width: 165px; */
+}
+
+.info-block{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .info-Date{
+  display: flex;
+  justify-content: center;
+} */
+/* IoCalendarOutline{
+  display: flex;
+  justify-content: center;
+} */
+  .tableBody-row {
+    /* width: 100px; */
+    height: 30px;
+    /* outline: 1px solid red; */
+    outline: 1px ;
+    box-shadow: #f5f6fb 0px -1px 0px 0px inset ;
+    /* border-radius: 3px; */
+    /* border-top: 5px solid #f5f6fb; */
+}
+.tableBody-cell-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #52555f;
+}
+
+.info-Date{
+font-family: var(--font-family);
+font-weight: 900;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #52555f;
+margin-bottom: 42px;
+margin-top: 40px;
+}
+
+
+  .tableBody-cell {
+  font-family: var(--font-family);
+  font-weight: 400;
+  text-align: left;
+  font-size: 8px;
+  text-transform: uppercase;
+  color: #52555f;
+  order: 1;
+}
+.tableBody-cell-title-tablet {
+  display: none;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #52555f;
+}
+
+.botton-box{
+  /* gap: 10px;
+  position: fixed; */
+  /* display: flex;
+  justify-content: center; */
+  /* position:fixed; */
+  /* margin: 0 auto; */
+  position: fixed;
+                   /* Прижать к верхнему краю (или bottom: 0 для нижнего) */
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;              /* Растянуть на всю ширину */
+  display: flex;            /* Разместить кнопки в ряд */
+  justify-content: center;
+  /* align-items:; */
+  /* padding-top: 75%; */
+  gap: 2px;                /* Отступ между кнопками */
+   /* Обязательно задайте фон, иначе текст снизу будет просвечивать */
+  z-index: 1000;
+}
+
+
+.TabsMobile{
+  display: block;
+  /* position: fixed;
+
+  top: 20px;
+  z-index: 100; */
+  font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 138px;
+    height: 40px;
+    color: black;
+    font-size: 12px;
+    background: #F5F6FB ;
+    /* border-radius: 16px 16px 0 0; */
+}
+.TabsMobileA{
+  /* position: fixed;
+  top: 20px;
+  z-index: 100; */
+  display: block;
+  font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 138px;
+    height: 40px;
+    color: #F5F6FB;
+    font-size: 12px;
+    background: #FF751D;
+    /* border-radius: 16px 16px 0 0; */
+}
+.info-input-box{
+  display: none;
+}
+
+.info-box-el{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 22px ;
+  width: 145px;
+  height: 44px;
+}
+
+.info-input-box{
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  /* background: #f5f6fb; */
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  /* height: 40px; */
+}
+
+  .tableBody-row-box {
+  display: flex;
+  flex-direction: column;
+  width: 44px;
+}
+  .tableBody-cell {
+  font-family: var(--font-family);
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  font-size: 8px;
+  text-transform: uppercase;
+  color: #52555f;
+  /* order: 1; */
+}
+  .tableBody-cell-tablet {
+    display: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  text-align: left;
+  font-size: 8px;
+  text-transform: uppercase;
+  color: #52555f;
+  order: 1;
+}
+  .tableBody-cell-icon{
+    margin-top: -26px;
+    background: none;
+    border: none;
+    position:static;
+    cursor: pointer;
+    width: 18px;
+    
+    height: 18px;
+  }
+  .tableHeader {
+  display: flex;
+  width: 605px;
+  height: 38px;
+  margin: 0 auto;
+  gap: 50px;
+  margin-top: 20px;
+  background: #f5f6fb;
+  border-radius: 20px 20px 0 0;
+}
+
+/* .tableBody-cell-title-tablet{
+  width: 168px;
+} */
+
+
+.tableTh {
+  display: flex;
+  justify-content: space-between;
+  width: 605px;
+  height: 38px;
+  margin: 0 auto;
+  gap: 50px;
+  padding: 10px 20px;
+}
+.tableBody-cell-button{
+    margin-top: 3px;
+    margin-left: 5px;
+    background: none;
+    border: none;
+    position:static;
+    cursor: pointer;
+    width: 18px;
+    
+    height: 18px;
+}
+
+}
+@media (min-width: 768px) {
+  
+
+
+  .Tabs{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 138px;
+    height: 40px;
+    color: black;
+    font-size: 12px;
+    background: #fefefe;
+    border-radius: 16px 16px 0 0;
+  }
+    .TabsActive{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 138px;
+    height: 40px;
+    color:#FF751D;
+    font-size: 12px;
+    background: #fefefe;
+    border-radius: 16px 16px 0 0;
+  }
+  .transaction-list-container{
+    border-radius: 0 30px 30px 30px;
+    width: 665px;
+    height: 626px;
+    /* background: #FFFFFF; */
+    margin: 0 auto;
+  }
+  
+
+
+
+  .tablehead {
+  background-color:#f5f6fb;
+  border-top-right-radius: 1px;
+  border-top-left-radius: 1px;
+}
+ table {
+  border-collapse: separate; /* Важно: раздельные границы */
+  border-spacing: 0;         /* Убираем отступы между ячейками */
+}
+
+/* 2. Скругляем левый верхний угол первой ячейки */
+thead tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+/* 3. Скругляем правый верхний угол последней ячейки */
+thead tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+.tableBody-cell-amount{
+  display: flex;
+    font-family: var(--font-family);
+  font-weight: 700;
+  width: 104px;
+  /* justify-content: center; */
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #52555f;
+
+}
+
+.tableBody-button-box{
+  display: flex;
+  justify-content: center;
+}
+
+.tableBody-cell-button{
+  /* margin-left: 40px; */
+}
+
+.tableBody-cell-icon{
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  
+}
+
+.info-block{
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 40px;
+}
+.info-input-box{
+  display: flex;
+  align-items: center;
+  background: #f5f6fb;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  height: 40px;
+}
+
+.info-Date{
+  font-family: var(--font-family);
+  font-weight: 900;
+  color:52555F;
+  font-size: 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.info-input::placeholder{
+  color:#c7ccdc ;
+}
+
+.info-const{
+    font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  
+  /* background: #f5f6fb; */
+  text-align: center;
+
+
+  height: 40px;
+  width: 104px;
+}
+.info-select{
+  display: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  text-align: center;
+
+  height: 40px;
+   width: 171px;
+}
+
+.info-selectActive{
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  text-align: center;
+
+  height: 40px;
+   width: 171px;
+}
+
+.info-selectExpense{
+  display: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  text-align: center;
+
+  height: 40px;
+   width: 171px;
+}
+
+.info-selectExpenseActive{
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  text-align: center;
+
+  height: 40px;
+   width: 171px;
+}
+.info-calculator{
+  margin-right: 20px;
+  /* align-items: center; */
+}
+
+.info-select-title{
+  display: inline-block;
+  padding-top: 15px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  color: #c7ccdc;
+  /* background: #f5f6fb; */
+  width: 121px;
+  text-align: center;
+  height: 44px;
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+  .tableBody-button{
+
+    width: 125px;
+    height: 44px;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    background: #FF751D;
+    border-radius: 16px;
+  }
+    .tableBody-button2{
+
+    width: 125px;
+    height: 44px;
+    color: #52555F;
+    font-size: 12px;
+    text-align: center;
+    background: #F6F7FC;
+    border-radius: 16px;
+  }
+  .tableBody-row {
+    height: 30px;
+    /* gap: 100px; */
+    /* outline: 1px solid red; */
+    /* outline: 1px ; */
+    box-shadow: #f5f6fb 0px -1px 0px 0px inset ;
+    /* border-radius: 3px; */
+    /* border-top: 5px solid #f5f6fb; */
+}
+  .tableBody-cell {
+  font-family: var(--font-family);
+  font-weight: 400;
+  text-align: center;
+  font-size: 8px;
+  /* text-transform: uppercase; */
+  color: #52555f;
+  order: 0;
+
+}
+
+  .tableBody-cell-tablet {
+  font-family: var(--font-family);
+  font-weight: 400;
+  text-align: center;
+  font-size: 8px;
+  /* text-transform: uppercase; */
+  color: #52555f;
+  order: 0;
+
+}
+.tableBody-cell-title-tablet {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #52555f;
+}
+
+
+.tableBody-row-box {
+  display: none;
+  flex-direction: center;
+  gap: 200px;
+  /* margin-left: 100px; */
+  /* width: 44px; */
+}
+
+
+  .tableBody-cell {
+  font-family: var(--font-family);
+  font-weight: 400;
+  text-align: center;
+  font-size: 8px;
+  text-transform: uppercase;
+  /* color: red; */
+  color: #52555f;
+  /* order: 1; */
+}
+  /* .tableBody-cell-button{
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+    /* order: ; */
+    /* margin-left: px; */
+    /* margin-top: 500px; */
+  .tableHeader {
+  display: flex;
+  width: 605px;
+  height: 38px;
+  margin: 0 auto;
+  gap: 50px;
+  margin-top: 20px;
+  background: #f5f6fb;
+  border-radius: 20px 20px 0 0;
+}
+
+.tableTh {
+  display: flex;
+  justify-content: space-between;
+  width: 605px;
+  height: 38px;
+  margin: 0 auto;
+  gap: 50px;
+  padding: 10px 20px;
+}
+.tableBody-cell-button{
+  /* background: none;
+  position:absolute;
+  right: 20px;
+  margin-top: -10px;
+  border: none;
+  cursor: pointer; */
+  width: 18px;
+  height: 18px;
+}
+
+}
+/* @media (min-width: 1024px) {
+
+} */
+
+
+
+
+
+.transaction-title {
+  color: #000;
+}
+
+
