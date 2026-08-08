@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 
 import {
   selectTotalExpenseSum,
+  selectTotalIncomeSum,
   type Month,
   type SumByPeriod,
   type Years,
 } from '../../redux/selectors/transaction_selectors';
-import styles from './SummarySection.module.css';
+import s from './SummarySection.module.css';
 
 type SummaryRow = readonly [month: string, amount: string];
 
@@ -60,28 +61,30 @@ const getSummaryRows = (sumByPeriod: SumByPeriod): SummaryRow[] => {
   });
 };
 
-export default function Summary() {
+export default function Summary({ activeCategory }: any) {
   const expenseSummary = useSelector(selectTotalExpenseSum);
+  const incomesSummary = useSelector(selectTotalIncomeSum);
 
+  const summary = activeCategory === "Витрати" ? expenseSummary : incomesSummary;
   const summaryRows = useMemo(
-    () => getSummaryRows(expenseSummary),
-    [expenseSummary],
+    () => getSummaryRows(summary),
+    [summary],
   );
 
   return (
-    <section className={styles.section} aria-labelledby="summary-title">
-      <div className={styles.table} role="table" aria-label="Зведення операцій">
-        <h2 className={styles.title} id="summary-title">
+    <section className={s.section} aria-labelledby="summary-title">
+      <div className={s.table} role="table" aria-label="Зведення операцій">
+        <h2 className={s.title} id="summary-title">
           ЗВЕДЕННЯ
         </h2>
 
-        <div className={styles.body}>
+        <div className={s.body}>
           {summaryRows.map(([month, amount]) => (
-            <div className={styles.row} role="row" key={month}>
-              <span className={styles.month} role="cell">
+            <div className={s.row} role="row" key={month}>
+              <span className={s.month} role="cell">
                 {month}
               </span>
-              <span className={styles.amount} role="cell">
+              <span className={s.amount} role="cell">
                 {amount}
               </span>
             </div>

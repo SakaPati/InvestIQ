@@ -1,8 +1,8 @@
 .section {
   width: min(100%, 420px);
-  min-height: 100vh;
+  /* min-height: 100vh; */
   margin: 0 auto;
-  padding: 48px 20px;
+  /* padding: 48px 20px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,9 +20,9 @@
 
 .title {
   margin: 0;
-  padding: 25px 24px 24px;
+  padding: 13px 0;
   color: #0d0d0f;
-  font-size: 22px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1;
   text-align: center;
@@ -36,15 +36,15 @@
 }
 
 .row {
-  min-height: 68px;
-  padding: 0 28px;
+  min-height: 38px;
+  padding: 0 22px;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   background: #f1f3f9;
   color: #5b5f6b;
-  font-size: 21px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
 }
@@ -108,19 +108,23 @@
   bottom: -18px;
 }
 
+@media (min-width: 320px) {
+  .section {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .section {
     width: 100%;
-    padding: 74px clamp(54px, 8vw, 92px);
     display: grid;
-    grid-template-columns: 330px minmax(330px, 480px);
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     gap: 44px;
   }
 
   .table {
-    width: 330px;
+    width: 230px;
   }
 
   .decor {

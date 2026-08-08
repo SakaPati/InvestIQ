@@ -13,6 +13,7 @@ import {
   removeIncome,
   type Transaction,
 } from "@/redux/slices/transaction";
+import Summary from "../Summary/SummarySection";
 
 const Transactions = () => {
   const [desc, setDesc] = useState("");
@@ -181,7 +182,7 @@ const Transactions = () => {
           </div>
 
           <input
-            type="text"
+            type="number"
             placeholder="0,00"
             onChange={(e) => changeSum(e.target.value)}
             value={sum}
@@ -196,58 +197,62 @@ const Transactions = () => {
             </button>
           </div>
         </div>
-        <div className={s.transactionsWrapper}>
-          <table className={s.transactionsTable}>
-            <thead>
-              <tr>
-                <th>ДАТА</th>
-                <th>ОПИС</th>
-                <th>КАТЕГОРІЯ</th>
-                <th>СУМА</th>
-                <th></th>
-              </tr>
-            </thead>
-          </table>
-
-          <div className={s.tableBodyWrapper}>
+        <div className={s.box}>
+          <div className={s.transactionsWrapper}>
             <table className={s.transactionsTable}>
-              <tbody>
-                {transactions.map((transaction) => (
-                  <tr key={transaction.id}>
-                    <td>
-                      {new Date(transaction.date).toLocaleDateString("de-DE", {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric",
-                      })}
-                    </td>
-
-                    <td>{transaction.title}</td>
-
-                    <td>{transaction.category}</td>
-
-                    <td>
-                      <span
-                        className={
-                          activeCategory === "Доходи" ? s.green : s.red
-                        }
-                      >
-                        {Number(transaction.sum).toLocaleString("uk-UA") } грн.</span>
-                    </td>
-                    <td>
-                      <button
-                        type="button"
-                        className={s.deleteBtn}
-                        onClick={() => remove(transaction.id)}
-                      >
-                        <GoTrash />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+              <thead>
+                <tr>
+                  <th>ДАТА</th>
+                  <th>ОПИС</th>
+                  <th>КАТЕГОРІЯ</th>
+                  <th>СУМА</th>
+                  <th></th>
+                </tr>
+              </thead>
             </table>
+
+            <div className={s.tableBodyWrapper}>
+              <table className={s.transactionsTable}>
+                <tbody>
+                  {transactions.map((transaction) => (
+                    <tr key={transaction.id}>
+                      <td>
+                        {new Date(transaction.date).toLocaleDateString("de-DE", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                        })}
+                      </td>
+
+                      <td>{transaction.title}</td>
+
+                      <td>{transaction.category}</td>
+
+                      <td>
+                        <span
+                          className={
+                            activeCategory === "Доходи" ? s.green : s.red
+                          }
+                        >
+                          {Number(transaction.sum).toLocaleString("uk-UA")} грн.</span>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          className={s.deleteBtn}
+                          onClick={() => remove(transaction.id)}
+                        >
+                          <GoTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+
+          <Summary activeCategory={activeCategory} />
         </div>
       </div>
     </section>

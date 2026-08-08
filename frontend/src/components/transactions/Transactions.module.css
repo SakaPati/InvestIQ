@@ -162,9 +162,15 @@
   color: #52555f;
 }
 
-.transactionsWrapper {
-  width: 760px;
+.box {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
 }
+
+/* .transactionsWrapper {
+  width: 760px;
+} */
 
 .transactionsTable {
   width: 100%;
@@ -298,6 +304,20 @@
   background-color: #ff751d;
   border-radius: 3px;
 } 
+
+@media (min-width: 768px) {
+  .box {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .box {
+    flex-direction: row;
+    row-gap: 0px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .transactions {

@@ -7,6 +7,7 @@ import { login, selectIsLoggedIn } from "@/redux/slices/user";
 import s from "./Home.module.css";
 import Transactions from "../transactions/Transactions";
 import { Link, useNavigate } from "react-router-dom";
+import Summary from "../Summary/SummarySection";
 
 export const Home = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -27,47 +28,47 @@ export const Home = () => {
 
         if (isNaN(numericBalance)) return;
 
-        if(!isLoggedIn) {
+        if (!isLoggedIn) {
             navigate("/login")
         } else {
-           dispatch(
-            login({
-                ...user,
-                balance: numericBalance,
-            }))
+            dispatch(
+                login({
+                    ...user,
+                    balance: numericBalance,
+                }))
         }
     };
 
     return (
-                    <>
-        <section>
-            <Container>
-                <div className={s.test}>
-                    <Link to="/report" className={s.calculations}>
-                        Перейти до розрахунків <Graf className={s.graf} />
-                    </Link>
+        <>
+            <section>
+                <Container>
+                    <div className={s.test}>
+                        <Link to="/report" className={s.calculations}>
+                            Перейти до розрахунків <Graf className={s.graf} />
+                        </Link>
 
-                    <p className={s.balance}>Баланс:</p>
-                    <div className={s.balanceContainer}>
-                        <input
-                            type="number"
-                            placeholder="00.00 UAH"
-                            className={s.balanceInput}
-                            value={balanceInput}
-                            onChange={(e) => setBalanceInput(e.target.value)}
-                        />
-                        <button
-                            type="button"
-                            className={s.balanceButton}
-                            onClick={handleConfirmBalance}
-                        >
-                            підтвердити
-                        </button>
+                        <p className={s.balance}>Баланс:</p>
+                        <div className={s.balanceContainer}>
+                            <input
+                                type="number"
+                                placeholder="00.00 UAH"
+                                className={s.balanceInput}
+                                value={balanceInput}
+                                onChange={(e) => setBalanceInput(e.target.value)}
+                            />
+                            <button
+                                type="button"
+                                className={s.balanceButton}
+                                onClick={handleConfirmBalance}
+                            >
+                                підтвердити
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </Container>
-        </section>
-        <Transactions />
+                        <Transactions />
+                </Container>
+            </section>
         </>
     );
 };

@@ -4,7 +4,7 @@ import { Report } from "./components/Report/Report";
 import Header from "./components/Header/Header";
 import { NotFound } from "./components/NotFound/NotFound";
 import Summary from "./components/Summary/SummarySection";
-import { Login } from "./components/authorization/login/Login";
+import { Login } from "./components/Authorization/login/Login";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
