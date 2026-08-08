@@ -30,6 +30,7 @@ export function Sum() {
   const currentMonth = useSelector(selectMonth)
 
   const month = months[currentMonth]
+  console.log(incomeSum[year][month].sum)
 
   return (
     <section className={s.section}>

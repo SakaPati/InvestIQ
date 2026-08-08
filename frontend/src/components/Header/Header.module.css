@@ -11,6 +11,10 @@
     align-items: center;
   }
 
+  .none {
+    display: none;
+  }
+
   .headerPosition {
     display: flex;
     justify-content: space-between;

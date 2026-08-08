@@ -1,0 +1,58 @@
+.chart-wrapper {
+  width: 90%;
+  max-width: 1300px;
+
+  margin: 50px auto;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.chart-inner {
+  width: 100%;
+  min-width: 700px;
+}
+
+/* scrollbar */
+.chart-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.chart-wrapper::-webkit-scrollbar-track {
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+
+.chart-wrapper::-webkit-scrollbar-thumb {
+  background: #ff751d;
+  border-radius: 10px;
+}
+
+
+/* TABLET */
+@media (max-width: 900px) {
+  .chart-wrapper {
+    width: 95%;
+    margin: 35px auto;
+  }
+
+  .chart-inner {
+    min-width: 650px;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .chart-wrapper {
+    width: 100%;
+    margin: 25px auto;
+    padding: 0 10px;
+
+    box-sizing: border-box;
+  }
+
+  .chart-inner {
+    min-width: 600px;
+  }
+}

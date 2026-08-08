@@ -226,14 +226,14 @@ const Transactions = () => {
 
                     <td>{transaction.category}</td>
 
-                  <td>
-  <span
-    className={
-      activeCategory === "Доходи" ? s.green : s.red
-    }
-  >
-{Number(transaction.sum).toLocaleString("uk-UA")} грн.  </span>
-</td>
+                    <td>
+                      <span
+                        className={
+                          activeCategory === "Доходи" ? s.green : s.red
+                        }
+                      >
+                        {Number(transaction.sum).toLocaleString("uk-UA") } грн.</span>
+                    </td>
                     <td>
                       <button
                         type="button"

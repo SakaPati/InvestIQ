@@ -2,12 +2,17 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import s from "./Header.module.css";
 import { Container } from "../utils/container/Container";
 import { Logo } from "@/assets";
-import { useSelector } from "react-redux";
-import { selectUsername } from "@/redux/slices/user";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectIsLoggedIn, selectUsername } from "@/redux/slices/user";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const username: string | null = useSelector(selectUsername);
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const isLoggedIn = useSelector(selectIsLoggedIn)
 
   const firstLetterOfUserName = typeof username === "string" ? username.slice(0, 1) : null;
 
@@ -21,15 +26,18 @@ export default function Header() {
           </div>
           <div className={s.headerMenu}>
             <div className={s.userDetails}>
-              <div className={s.userAvatar}>
-                <span>{firstLetterOfUserName}</span>
+              <div className={`${isLoggedIn ? s.userAvatar : s.none}`}>
+                <span>{username ? firstLetterOfUserName : null}</span>
               </div>
-              <p className={s.userDetailTxt}>{username}</p>
+              <p className={`${isLoggedIn ? s.userDetailTxt : s.none}`}>{username ? username : null}</p>
             </div>
-            <span className={s.divider}></span>
+            <span className={`${isLoggedIn ? s.divider : s.none}`}></span>
             <button type="button" className={s.logoutBtn}>
               <RiLogoutBoxRLine className={s.logoutIcon} />
-              <span className={s.logoutTxt}>Вийти</span>
+              <span className={s.logoutTxt} onClick={() => {
+                dispatch(logout())
+                navigate("/login")
+                }}>{isLoggedIn ? "Вийти" : null}</span>
             </button>
           </div>
         </div>

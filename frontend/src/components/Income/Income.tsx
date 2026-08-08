@@ -17,9 +17,9 @@ import s from "./Income.module.css";
 import { useEffect, useState } from "react";
 import icons from "../../../public/data/report.json";
 import { useSelector } from "react-redux";
-import { selectExpenseCategory } from "../../redux/selectors/transaction_selectors";
+import { selectExpenseCategory, selectIncomeCategory } from "../../redux/selectors/transaction_selectors";
 import type { RootState, Years } from "@/redux/slices/monthSlice";
-import { selectLastSixMonthsExpenses } from "@/redux/selectors/stats_selectors";
+import Chart from "../Chart/Chart";
 
 export type Category =
   | "Products"
@@ -54,6 +54,22 @@ const expenseCategories: Category[] = [
   "Other",
 ];
 
+// const incomeCategories: Category[] = [
+//  "Salary",
+//  "Extra"
+// ];
+// const expense = "Products" || "Alcohol" ||
+//   "Fun" ||
+//   "Health ||
+//   "Transport ||
+//   "Home ||
+//   "Technic ||
+//   "Bills ||
+//   "Hobby ||
+//   "Learn ||
+//   "Other" ||
+
+
 const englishMonths = [
   "January",
   "February",
@@ -73,18 +89,17 @@ type EnglishMonth = (typeof englishMonths)[number];
 
 type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
-
-
-
 export function Income({ category }: IncomeProps) {
   const [active, setActive] = useState<Category>("Products");
 
-  const currentPeriodStats = useSelector(selectExpenseCategory);
-  const a = useSelector(selectLastSixMonthsExpenses)
+  const expenseData = useSelector(selectExpenseCategory);
+  const incomeData = useSelector(selectIncomeCategory);
 
-  const month = useSelector(
-    (state: RootState) => state.monthCalendar.month,
-  );
+  // console.log(incomeData)
+
+  const data = category === "Витрати" ? expenseData : incomeData;
+
+  const month = useSelector((state: RootState) => state.monthCalendar.month);
 
   const year: Years = useSelector(
     (state: RootState) => state.monthCalendar.year,
@@ -92,12 +107,6 @@ export function Income({ category }: IncomeProps) {
 
   const currentMonthName: EnglishMonth = englishMonths[month];
 
-
- const graphicData = currentPeriodStats[year][currentMonthName]?.[active].transactions;
-
- console.log(graphicData)
-
-  
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setActive((previousCategory) =>
@@ -128,32 +137,38 @@ export function Income({ category }: IncomeProps) {
 
   const handleActiveClick = (id: Category) => {
     setActive(id);
-    console.log(a)
   };
 
   return (
-    <ul className={s.list}>
-      {icons.map((icon) => {
-        const id = icon.id as Category; // example Products
-        const Icon = mappedIcons[id];
+    <>
+      <ul className={s.list}>
+        {icons.map((icon) => {
+          const id = icon.id as Category; // example Products
+          const Icon = mappedIcons[id];
 
-        if (!Icon) {
-          return null;
-        }
+          if (!Icon) {
+            return null;
+          }
 
-        return (
-          <li className={s.item} key={icon.id}>
-            <p className={s.sum}>{currentPeriodStats[year][currentMonthName]?.[id].total}</p>
+          return (
+            <li className={s.item} key={icon.id}>
+              <p className={s.sum}>
+                {data[year][currentMonthName]?.[id].total}
+              </p>
 
-            <Icon
-              className={id === active ? `${s.active} ${s.icon}` : s.icon}
-              onClick={() => handleActiveClick(id)}
-            />
+              <Icon
+                className={id === active ? `${s.active} ${s.icon}` : s.icon}
+                onClick={() => handleActiveClick(id)}
+              />
 
-            <h3 className={s.iconName}>{icon.title.toUpperCase()}</h3>
-          </li>
-        );
-      })}
-    </ul>
+              <h3 className={s.iconName}>{icon.title.toUpperCase()}</h3>
+            </li>
+          );
+        })}
+      </ul>
+      <Chart
+        bigData={data?.[year]?.[currentMonthName]?.[active]?.transactions}
+      />
+    </>
   );
 }

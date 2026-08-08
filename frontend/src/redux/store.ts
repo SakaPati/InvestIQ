@@ -24,14 +24,24 @@ const persistConfig = {
   storage,
 };
 
+const persistUserConfig = {
+  key: 'root',
+  storage,
+};
+
 const persistedTransactionsReducer = persistReducer(
   persistConfig,
   transactionsReducer
 );
 
+const persistedUserReducer = persistReducer(
+  persistUserConfig,
+  userSlice.reducer
+);
+
 export const store = configureStore({
   reducer: {
-    user: userSlice.reducer,
+    user: persistedUserReducer,
     transactions: persistedTransactionsReducer,
     monthCalendar: monthSlice.reducer
   },

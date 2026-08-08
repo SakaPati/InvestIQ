@@ -53,4 +53,5 @@ export const selectUsername = (state: RootState): string | null => state.user.us
 export const selectEmail = (state: RootState): string | null => state.user.email;
 export const selectIsLoggedIn = (state: RootState): boolean => state.user.isLoggedIn;
 export const selectAvatar = (state: RootState): string | null => state.user.avatar;
+export const selectBalance = (state: RootState): number | null => state.user.balance;
 
