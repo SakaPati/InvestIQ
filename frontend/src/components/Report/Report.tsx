@@ -32,7 +32,8 @@ export function Report() {
           <Next onClick={handleCategoryClick} className={s.arrow} />
         </div>
         <Income category={activeCategory} />
-     </div> </div>
+     </div> 
+     </div>
     </section>
   );
 }

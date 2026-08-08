@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface CounterState {
+export interface State {
   username: null | string;
   avatar: null | string;
   email: null | string;
   isLoggedIn: boolean;
-  token: null | string;
   balance: null | number;
+  token: null | string
 }
 
-const initialState: CounterState = {
+export type RootState = {
+  user: State
+}
+
+const initialState: State = {
   username: null,
   avatar: null,
   email: null,
@@ -44,3 +48,10 @@ export const userSlice = createSlice({
 export const { login, logout } = userSlice.actions;
 
 export default userSlice.reducer;
+
+export const selectUsername = (state: RootState): string | null => state.user.username;
+export const selectEmail = (state: RootState): string | null => state.user.email;
+export const selectIsLoggedIn = (state: RootState): boolean => state.user.isLoggedIn;
+export const selectAvatar = (state: RootState): string | null => state.user.avatar;
+export const selectBalance = (state: RootState): number | null => state.user.balance;
+

@@ -139,7 +139,7 @@ export interface CategoryData {
   total: number;
 }
 
-type Transaction = {
+export type Transaction = {
   name: string;
   value: number;
   // date: string;

@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { userSlice } from "./slices/user";
 import transactionsReducer from "./slices/transaction";
+import { monthSlice } from './slices/monthSlice';
 import {
-  persistStore,
   persistReducer,
+  persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -11,47 +12,54 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { monthSlice } from "./slices/monthSlice";
+import pkgStorage from "redux-persist/lib/storage"
 
-const storage = {
-  getItem(key: string) {
-    return Promise.resolve(localStorage.getItem(key));
-  },
-  setItem(key: string, value: string) {
-    localStorage.setItem(key, value);
-    return Promise.resolve();
-  },
-  removeItem(key: string) {
-    localStorage.removeItem(key);
-    return Promise.resolve();
-  },
-};
+const storageModule = pkgStorage as unknown as Record<string, Storage>;
+const storage: Storage = storageModule.default && typeof storageModule.default === 'object'
+  ? storageModule.default 
+  : (pkgStorage as unknown as Storage);
 
-const userPersistConfig = {
-  key: "user",
+const persistConfig = {
+  key: 'root',
   storage,
 };
 
+const persistUserConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedTransactionsReducer = persistReducer(
+  persistConfig,
+  transactionsReducer
+);
+
 const persistedUserReducer = persistReducer(
-  userPersistConfig,
+  persistUserConfig,
   userSlice.reducer
 );
 
 export const store = configureStore({
   reducer: {
     user: persistedUserReducer,
-    transactions: transactionsReducer,
+    transactions: persistedTransactionsReducer,
     monthCalendar: monthSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [
+          FLUSH,
+          REHYDRATE,
+          PAUSE,
+          PERSIST,
+          PURGE,
+          REGISTER,
+        ],
       },
     }),
 });
 
-export const persistor = persistStore(store);
-
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export const persistor = persistStore(store);

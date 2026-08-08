@@ -5,7 +5,7 @@ import {
 
 export interface Transaction {
   id: string;
-  date: string;
+  date: Date;
   title: string;
   category: Category;
   sum: number;

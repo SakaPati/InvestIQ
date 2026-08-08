@@ -3,13 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Graf } from "@/assets";
 import { Container } from "../utils/container/Container";
 import type { RootState, AppDispatch } from "@/redux/store";
-import { login } from "@/redux/slices/user";
+import { login, selectIsLoggedIn } from "@/redux/slices/user";
 import s from "./Home.module.css";
+import Transactions from "../transactions/Transactions";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Home = () => {
     const dispatch = useDispatch<AppDispatch>();
     const user = useSelector((state: RootState) => state.user);
     const [balanceInput, setBalanceInput] = useState<string>("");
+
+    const isLoggedIn = useSelector(selectIsLoggedIn)
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (user.balance !== null && user.balance !== undefined) {
@@ -22,21 +27,25 @@ export const Home = () => {
 
         if (isNaN(numericBalance)) return;
 
-        dispatch(
+        if(!isLoggedIn) {
+            navigate("/login")
+        } else {
+           dispatch(
             login({
                 ...user,
                 balance: numericBalance,
-            })
-        );
+            }))
+        }
     };
 
     return (
+                    <>
         <section>
             <Container>
                 <div className={s.test}>
-                    <p className={s.calculations}>
+                    <Link to="/report" className={s.calculations}>
                         Перейти до розрахунків <Graf className={s.graf} />
-                    </p>
+                    </Link>
 
                     <p className={s.balance}>Баланс:</p>
                     <div className={s.balanceContainer}>
@@ -58,5 +67,7 @@ export const Home = () => {
                 </div>
             </Container>
         </section>
+        <Transactions />
+        </>
     );
 };

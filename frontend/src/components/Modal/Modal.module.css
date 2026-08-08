@@ -1,0 +1,57 @@
+@media (max-width: 320px) {
+  .modal {
+  padding: 36px 20px 24px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.confirmBtn,
+.cancelBtn {
+  padding: 12px 0;
+  font-size: 14px;
+  border-radius: 14px;
+}
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 40px 32px 32px;
+    max-width: 420px;
+    border-radius: 24px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+
+  .confirmBtn,
+  .cancelBtn {
+    padding: 14px 0;
+    font-size: 15px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 1280px) {
+ .modal {
+    padding: 48px 40px 40px;
+    max-width: 480px;
+    border-radius: 28px;
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 32px;
+  }
+
+  .confirmBtn,
+  .cancelBtn {
+    font-size: 16px;
+  }
+}

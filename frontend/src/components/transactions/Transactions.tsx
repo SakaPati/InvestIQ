@@ -3,64 +3,40 @@ import { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 import { nanoid } from "@reduxjs/toolkit";
 import { GoTrash } from "react-icons/go";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addExpense,
+  addIncome,
+  expenseSelectors,
+  incomeSelectors,
+  removeExpense,
+  removeIncome,
+  type Transaction,
+} from "@/redux/slices/transaction";
 
 const Transactions = () => {
-  interface DescOfTransaction {
-    date: Date;
-    desc: string;
-    category: string;
-    sum: string;
-    id: string;
-  }
-
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
   const [sum, setSum] = useState("");
+
   const [isActive, setIsActive] = useState(false);
-  const [transactions, setTransactions] = useState<DescOfTransaction[]>([]);
+  const [activeCategory, setActiveCategory] = useState<"Витрати" | "Доходи">(
+    "Витрати",
+  );
 
-  const changeDesc = (value: string) => {
-    setDesc(value);
-  };
+  const expenseTransactions: Transaction[] = useSelector(
+    expenseSelectors.selectAll,
+  );
+  const incomeTransactions: Transaction[] = useSelector(
+    incomeSelectors.selectAll,
+  );
 
-  const setCateg = (value: string) => {
-    setCategory(value);
-    setIsActive(false);
-  };
+  const transactions =
+    activeCategory === "Витрати" ? expenseTransactions : incomeTransactions;
 
-  const changeSum = (value: string) => {
-    setSum(value);
-  };
+  const dispatch = useDispatch();
 
-  const changeActive = (value: boolean) => {
-    setIsActive(value);
-  };
-
-  const addTransaction = () => {
-    if (desc && category && sum !== null) {
-      setTransactions([
-        ...transactions,
-        {
-          date: new Date(),
-          desc: desc,
-          category: category,
-          sum: sum,
-          id: nanoid(),
-        },
-      ]);
-    }
-    setDesc("");
-    setCategory("");
-    setSum("");
-  };
-
-  const clearInputs = () => {
-    setDesc("");
-    setCategory("");
-    setSum("");
-  };
-
-  const categories: Array<string> = [
+  const expenseCategories: Array<string> = [
     "Products",
     "Alcohol",
     "Fun",
@@ -74,21 +50,93 @@ const Transactions = () => {
     "Other",
   ];
 
-  const deleteTransaction = (id: string) => {
-    setTransactions(
-      transactions.filter((transaction) => {
-        return transaction.id !== id;
-      }),
-    );
-  };
+  const incomeCategories: Array<string> = ["Salary", "Extra"];
+
+  const categories =
+    activeCategory === "Витрати" ? expenseCategories : incomeCategories;
+
+  function changeDesc(value: string) {
+    setDesc(value);
+  }
+
+  function setCateg(value: string) {
+    setCategory(value);
+    setIsActive(false);
+  }
+
+  function changeSum(value: string) {
+    setSum(value);
+  }
+
+  function changeActive(value: boolean) {
+    setIsActive(value);
+  }
+
+  function addTransaction() {
+    if (desc && category && sum !== null) {
+      if (activeCategory === "Витрати") {
+        dispatch(
+          addExpense({
+            id: nanoid(),
+            title: desc,
+            category: category,
+            date: Date.now(),
+            sum: Number(sum),
+          }),
+        );
+      } else {
+        dispatch(
+          addIncome({
+            id: nanoid(),
+            title: desc,
+            category: category,
+            date: Date.now(),
+            sum: Number(sum),
+          }),
+        );
+      }
+    }
+
+    clearInputs();
+  }
+
+  function clearInputs() {
+    setDesc("");
+    setCategory("");
+    setSum("");
+  }
+
+  function onIncomeChange() {
+    setActiveCategory("Доходи");
+  }
+
+  function onExpenseChange() {
+    setActiveCategory("Витрати");
+  }
+
+  function remove(id: string) {
+    if (activeCategory === "Витрати") {
+      dispatch(removeExpense(id));
+    } else {
+      dispatch(removeIncome(id));
+    }
+  }
 
   return (
     <section className={s.transactions}>
       <div className={s.buttons}>
-        <button type="button" className={s.switchBtn}>
+        <button
+          type="button"
+          className={`${activeCategory === "Витрати" ? `${s.active} ${s.switchBtn}` : s.switchBtn}`}
+          onClick={onExpenseChange}
+        >
           Витрати
         </button>
-        <button type="button" className={s.switchBtn}>
+        <button
+          type="button"
+          className={`${activeCategory === "Доходи" ? `${s.active} ${s.switchBtn}` : s.switchBtn}`}
+          onClick={onIncomeChange}
+        >
           Доходи
         </button>
       </div>
@@ -119,13 +167,13 @@ const Transactions = () => {
             </button>
             {isActive && (
               <ul className={s.categsList}>
-                {categories.map((ctg, index) => (
+                {categories.map((category, index) => (
                   <li
                     key={index}
-                    onClick={() => setCateg(ctg)}
+                    onClick={() => setCateg(category)}
                     className={s.categListItem}
                   >
-                    {ctg}
+                    {category}
                   </li>
                 ))}
               </ul>
@@ -149,31 +197,57 @@ const Transactions = () => {
           </div>
         </div>
         <div className={s.transactionsWrapper}>
-          <ul className={s.descTransaction}>
-            <li>ДАТА</li>
-            <li>ОПИС</li>
-            <li>КАТЕГОРІЯ</li>
-            <li>СУМА</li>
-          </ul>
-          <ul className={s.transctions}>
-            {transactions.map((transaction) => (
-              <li key={transaction.id} className={s.transactionListItem}>
-                <p className={s.listItemEl}>
-                  {transaction.date.toLocaleDateString()}
-                </p>
-                <p className={s.listItemEl}>{transaction.desc}</p>
-                <p className={s.listItemEl}>{transaction.category}</p>
-                <p className={s.listItemSalary}>{transaction.sum} грн.</p>
-                <button
-                  type="button"
-                  className={s.deleteBtn}
-                  onClick={() => deleteTransaction(transaction.id)}
-                >
-                  <GoTrash />
-                </button>
-              </li>
-            ))}
-          </ul>
+          <table className={s.transactionsTable}>
+            <thead>
+              <tr>
+                <th>ДАТА</th>
+                <th>ОПИС</th>
+                <th>КАТЕГОРІЯ</th>
+                <th>СУМА</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+
+          <div className={s.tableBodyWrapper}>
+            <table className={s.transactionsTable}>
+              <tbody>
+                {transactions.map((transaction) => (
+                  <tr key={transaction.id}>
+                    <td>
+                      {new Date(transaction.date).toLocaleDateString("de-DE", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                      })}
+                    </td>
+
+                    <td>{transaction.title}</td>
+
+                    <td>{transaction.category}</td>
+
+                    <td>
+                      <span
+                        className={
+                          activeCategory === "Доходи" ? s.green : s.red
+                        }
+                      >
+                        {Number(transaction.sum).toLocaleString("uk-UA") } грн.</span>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className={s.deleteBtn}
+                        onClick={() => remove(transaction.id)}
+                      >
+                        <GoTrash />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
